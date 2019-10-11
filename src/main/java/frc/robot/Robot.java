@@ -27,6 +27,7 @@ public class Robot extends TimedRobot {
 
   public static Hardware hardware;
   public static Intake intake;
+  public static OI oi;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     hardware = new Hardware();
     intake = new Intake();
+    oi = new OI();
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
