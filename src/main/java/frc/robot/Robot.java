@@ -8,8 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.IntakeSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +27,7 @@ public class Robot extends TimedRobot {
 	private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
 	public static Hardware hardware;
+	public static IntakeSubsystem intake;
 
 	/**
 	 * This function is run when the robot is first started up and should be used
@@ -33,6 +36,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		hardware = new Hardware();
+		intake = new IntakeSubsystem();
 		m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
 		m_chooser.addOption("My Auto", kCustomAuto);
 		SmartDashboard.putData("Auto choices", m_chooser);
@@ -91,6 +95,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		Scheduler.getInstance().run();
 	}
 
 	/**

@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -22,6 +23,18 @@ public class IntakeSubsystem extends Subsystem {
 
 	public IntakeSubsystem() {
 		intakeMotor = Robot.hardware.intakeMotor;
+	}
+
+	public void intake(double power) {
+		intakeMotor.set(ControlMode.PercentOutput, Math.abs(power));
+	}
+
+	public void outtake(double power) {
+		intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));
+	}
+
+	public void stop() {
+		intakeMotor.set(ControlMode.PercentOutput, 0);
 	}
 
 	@Override
