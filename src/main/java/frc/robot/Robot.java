@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 
 /**
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
 	private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
 	public static Hardware hardware;
+	public static DriveSubsystem drive;
 	public static IntakeSubsystem intake;
 	public static OI oi;
 
@@ -37,8 +39,10 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		hardware = new Hardware();
+		drive = new DriveSubsystem();
 		intake = new IntakeSubsystem();
 		oi = new OI();
+
 		m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
 		m_chooser.addOption("My Auto", kCustomAuto);
 		SmartDashboard.putData("Auto choices", m_chooser);
