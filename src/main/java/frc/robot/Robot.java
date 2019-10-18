@@ -24,12 +24,17 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
+  public static Hardware hardware;
+
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
-  @Override
+  @Override 
+  //robotInit is a main method
   public void robotInit() {
+    hardware = new Hardware();
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
