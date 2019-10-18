@@ -4,6 +4,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import frc.robot.util.Constants;
+
 public class Hardware {
 	public TalonSRX intakeMotor;
 	public CANSparkMax leftLeader;

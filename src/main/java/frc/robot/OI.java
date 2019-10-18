@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.OuttakeCommand;
+import frc.robot.util.Constants;
 
 public class OI {
 	public Joystick stick1;

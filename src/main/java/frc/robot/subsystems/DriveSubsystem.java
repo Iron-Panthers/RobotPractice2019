@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.util.Constants;
 import frc.robot.Robot;
 import frc.robot.commands.ManualDriveCommand;
 import frc.robot.util.SparkMaxMotorGroup;
@@ -22,6 +23,9 @@ public class DriveSubsystem extends Subsystem {
 	public DriveSubsystem() {
 		left = new SparkMaxMotorGroup(Robot.hardware.leftLeader, Robot.hardware.leftFollower);
 		right = new SparkMaxMotorGroup(Robot.hardware.rightLeader, Robot.hardware.rightFollower);
+
+		right.setInverted(Constants.IS_RIGHT_INVERTED);
+		left.setInverted(Constants.IS_LEFT_INVERTED);
 	}
 
 	/**
