@@ -33,6 +33,7 @@ public class IntakeCommand extends Command {
   protected boolean isFinished() {
     return false;
     // letter
+    // this is the new comment
   }
 
   // Called once after isFinished returns true
