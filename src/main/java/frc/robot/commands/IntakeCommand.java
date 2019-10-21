@@ -32,6 +32,7 @@ public class IntakeCommand extends Command {
   @Override
   protected boolean isFinished() {
     return false;
+    // letter
   }
 
   // Called once after isFinished returns true
