@@ -9,6 +9,10 @@ package frc.robot.util;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.subsystems.drive.Drive;
+import frc.robot.subsystems.drive.command.DriveWithJoystick;
+import frc.robot.subsystems.intake.commands.IntakeCommand;
+import frc.robot.subsystems.intake.commands.Outtake;
 
 /**
  * Add your docs here.
@@ -18,8 +22,11 @@ public class OI {
     public JoystickButton intakeButton;
     public JoystickButton outtakeButton;
     public OI() {
-        stick1 = new Joystick(1);
+        stick1 = new Joystick(0);
         intakeButton = new JoystickButton(stick1, 1);
         outtakeButton = new JoystickButton(stick1, 2);
+        intakeButton.whileHeld(new IntakeCommand());
+        outtakeButton.whileHeld(new Outtake());
+
     }
 }

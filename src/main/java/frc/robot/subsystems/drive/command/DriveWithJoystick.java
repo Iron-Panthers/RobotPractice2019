@@ -30,8 +30,14 @@ public class DriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      Robot.oi.stick1.getY();
-      Robot.oi.stick1.getX();
+      double y = Robot.oi.stick1.getY();
+      double x = Robot.oi.stick1.getX();
+      double leftPower = x + y;
+      double rightPower = x - y;
+      double max = Math.max(Math.abs(leftPower), Math.abs(rightPower));
+      leftPower = leftPower /= max;
+      rightPower = rightPower /= max;
+      Robot.drive.set(leftPower, rightPower);
   }
 
   // Make this return true when this Command no longer needs to run execute()

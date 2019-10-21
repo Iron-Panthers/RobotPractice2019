@@ -11,6 +11,7 @@ import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Hardware;
+import frc.robot.subsystems.drive.command.DriveWithJoystick;
 
 /**
  * Add your docs here.
@@ -18,8 +19,6 @@ import frc.robot.Hardware;
 public class Drive extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  double leftPower;
-  double rightPower;
   private CANSparkMax leftMotor1;
   private CANSparkMax leftMotor2;
   private CANSparkMax rightMotor1;
@@ -45,5 +44,6 @@ public class Drive extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new DriveWithJoystick());
   }
 }
