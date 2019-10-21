@@ -17,7 +17,7 @@ public class Hardware {
         leftMotor2 = new CANSparkMax(22, MotorType.kBrushless);
         rightMotor1 = new CANSparkMax(1, MotorType.kBrushless);
         rightMotor2 = new CANSparkMax(21, MotorType.kBrushless);
-        rightMotor1.setInverted(true);
-        rightMotor2.setInverted(true);
+        leftMotor1.setInverted(true);
+        leftMotor2.setInverted(true);
     }
 }

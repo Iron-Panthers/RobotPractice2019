@@ -35,8 +35,10 @@ public class DriveWithJoystick extends Command {
       double leftPower = x + y;
       double rightPower = x - y;
       double max = Math.max(Math.abs(leftPower), Math.abs(rightPower));
-      leftPower = leftPower /= max;
-      rightPower = rightPower /= max;
+      if (max > 1) {
+        leftPower = leftPower /= max;
+        rightPower = rightPower /= max;
+      }
       Robot.drive.set(leftPower, rightPower);
   }
 
