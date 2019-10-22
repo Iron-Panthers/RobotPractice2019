@@ -6,6 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Hardware {
     public TalonSRX intakeMotor;
+    public TalonSRX armMotor;
     public static CANSparkMax leftMotor1;
     public static CANSparkMax leftMotor2;
     public static CANSparkMax rightMotor1;
@@ -17,6 +18,7 @@ public class Hardware {
         leftMotor2 = new CANSparkMax(22, MotorType.kBrushless);
         rightMotor1 = new CANSparkMax(1, MotorType.kBrushless);
         rightMotor2 = new CANSparkMax(21, MotorType.kBrushless);
+        armMotor = new TalonSRX(6);
         leftMotor1.setInverted(true);
         leftMotor2.setInverted(true);
     }
