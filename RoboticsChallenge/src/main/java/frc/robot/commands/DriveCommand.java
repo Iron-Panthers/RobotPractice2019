@@ -9,13 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.util.Constants;
 
-public class IntakeCommand extends Command {
-  public IntakeCommand() {
+public class DriveCommand extends Command {
+  public DriveCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.intake);
+    requires(Robot.drive);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +25,16 @@ public class IntakeCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.intake(Constants.INTAKE_POWER);
+    double x = Robot.m_oi.stick1.getX();
+    double y = Robot.m_oi.stick1.getY();  
+    double max = Math.max(Math.abs(x), Math.abs(y)); 
+    
+    if(max > 1){
+      x /= max;
+      y /= max;
+    } 
+
+    Robot.drive.set(y + x, y - x);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,13 +46,13 @@ public class IntakeCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.stop();
+    Robot.drive.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.intake.stop();
+    Robot.drive.stop();
   }
 }

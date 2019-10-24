@@ -10,11 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class ManualDriveCommand extends Command {
-  public ManualDriveCommand() {
+public class OuttakeCommand extends Command {
+  public OuttakeCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.drive);
+    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
@@ -25,22 +25,7 @@ public class ManualDriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // get values
-    double x = Robot.oi.stick1.getX();
-    double y = Robot.oi.stick1.getY();
-
-    //calculate outputs
-    double leftSpeed = y + x;
-    double rightSpeed = y - x;
-
-    // handle overpower (outputs greater than 1.0)
-    double max = Math.max(Math.abs(leftSpeed), Math.abs(rightSpeed));
-    if (max > 1.0) {
-      leftSpeed /= max;
-      rightSpeed /= max;
-    }
-
-    Robot.drive.setOpenLoop(leftSpeed, rightSpeed);
+    Robot.intake.outtake(0.3);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -52,13 +37,13 @@ public class ManualDriveCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.drive.setNeutral();
+    Robot.intake.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.drive.setNeutral();
+    Robot.intake.stop();
   }
 }
