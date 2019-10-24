@@ -13,5 +13,7 @@ public class Constants{
     public static int OUTTAKE_BUTTON = 3;
     public static double INTAKE_POWER = 0.3;
     public static double OUTTAKE_POWER = 0.3;
+    public static boolean IS_RIGHT_INVERTED = true;
+    public static boolean IS_LEFT_INVERTED = false;
 
 }

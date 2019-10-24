@@ -20,5 +20,9 @@ public class SparkMaxMotorGroup {
         leader.set(0);
     }
 
+    public void setInversion(boolean isInverted){
+        leader.setInverted(isInverted);
+        follower.setInverted(isInverted); //security
+    }
 
 }

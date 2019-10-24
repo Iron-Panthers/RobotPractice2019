@@ -26,15 +26,17 @@ public class DriveCommand extends Command {
   @Override
   protected void execute() {
     double x = Robot.m_oi.stick1.getX();
-    double y = Robot.m_oi.stick1.getY();  
-    double max = Math.max(Math.abs(x), Math.abs(y)); 
+    double y = Robot.m_oi.stick1.getY(); 
+    double left = y + x;
+    double right = y - x; 
+    double max = Math.max(Math.abs(left), Math.abs(right)); 
     
     if(max > 1){
-      x /= max;
-      y /= max;
+      left /= max;
+      right /= max;
     } 
 
-    Robot.drive.set(y + x, y - x);
+    Robot.drive.set(left, right);
   }
 
   // Make this return true when this Command no longer needs to run execute()

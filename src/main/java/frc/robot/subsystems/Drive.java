@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.commands.DriveCommand;
 import frc.robot.util.SparkMaxMotorGroup;
+import frc.robot.util.Constants;
 
 /**
  * Add your docs here.
@@ -24,6 +25,7 @@ public class Drive extends Subsystem {
   public Drive(){
     leftGroup = new SparkMaxMotorGroup(Robot.hardware.leftLeader, Robot.hardware.rightLeader);
     rightGroup = new SparkMaxMotorGroup(Robot.hardware.rightLeader, Robot.hardware.rightFollower);
+    rightGroup.setInversion(Constants.IS_RIGHT_INVERTED);
   }
 
   public void set(double leftPower, double rightPower){
