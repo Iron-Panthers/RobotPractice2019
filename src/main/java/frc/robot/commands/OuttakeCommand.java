@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.util.Constants;
 
 public class OuttakeCommand extends Command {
   public OuttakeCommand() {
@@ -25,7 +26,7 @@ public class OuttakeCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.outtake(0.3);
+    Robot.intake.outtake(Constants.OUTTAKE_POWER);
   }
 
   // Make this return true when this Command no longer needs to run execute()

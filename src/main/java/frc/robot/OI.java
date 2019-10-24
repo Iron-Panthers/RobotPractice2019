@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.OuttakeCommand;
+import frc.robot.util.Constants;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,10 +22,10 @@ public class OI {
   public JoystickButton intakeButton, outtakeButton;
 
   public OI(){
-    stick1 = new Joystick(1);
-    intakeButton = new JoystickButton(stick1, 7);
-    outtakeButton = new JoystickButton(stick1, 11);
-    driveStick = new Joystick(2);
+    stick1 = new Joystick(Constants.STICK_1_PORT);
+    intakeButton = new JoystickButton(stick1, Constants.INTAKE_BUTTON);
+    outtakeButton = new JoystickButton(stick1, Constants.OUTTAKE_BUTTON);
+    driveStick = new Joystick(Constants.DRIVE_STICK_PORT);
 
     intakeButton.whileHeld(new IntakeCommand());
     outtakeButton.whileHeld(new OuttakeCommand());
