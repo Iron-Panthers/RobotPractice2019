@@ -27,6 +27,7 @@ public class Drive extends Subsystem {
     leftGroup = new SparkMaxMotorGroup(Robot.hardware.leftLeader, Robot.hardware.rightLeader);
     rightGroup = new SparkMaxMotorGroup(Robot.hardware.rightLeader, Robot.hardware.rightFollower);
     rightGroup.setInversion(Constants.IS_RIGHT_INVERTED);
+    leftGroup.setInversion(Constants.IS_LEFT_INVERTED);
   }
 
   public void set(double leftPower, double rightPower){

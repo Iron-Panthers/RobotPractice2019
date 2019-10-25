@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Command;
 
-
 import frc.robot.subsystems.Arm;
+import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Drive;
 
 import frc.robot.subsystems.Intake;
@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
   public static Intake intake;
   public static Arm arm;
   public static Drive drive;
+  public static Climb climb;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -50,6 +51,7 @@ public class Robot extends TimedRobot {
     intake = new Intake();
     drive = new Drive();
     arm = new Arm();
+    climb = new Climb();
     m_oi = new OI();
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
