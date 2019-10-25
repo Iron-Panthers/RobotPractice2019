@@ -23,17 +23,20 @@ public class Drive extends Subsystem {
   public SparkMaxMotorGroup leftGroup, rightGroup;
 
   public Drive(){
+    System.out.println("INITIALIZED DRIVE CONSTRUCTOR");
     leftGroup = new SparkMaxMotorGroup(Robot.hardware.leftLeader, Robot.hardware.rightLeader);
     rightGroup = new SparkMaxMotorGroup(Robot.hardware.rightLeader, Robot.hardware.rightFollower);
     rightGroup.setInversion(Constants.IS_RIGHT_INVERTED);
   }
 
   public void set(double leftPower, double rightPower){
+    System.out.println("SET IN DRIVE SYSTEM");
     leftGroup.set(leftPower);
     rightGroup.set(rightPower);
   }
 
   public void stop(){
+    System.out.println("STOP IN DRIVE SYSTEM");
     leftGroup.set(0);
     rightGroup.set(0);
   }

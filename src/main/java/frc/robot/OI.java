@@ -29,6 +29,5 @@ public class OI {
 
     intakeButton.whileHeld(new IntakeCommand());
     outtakeButton.whileHeld(new OuttakeCommand());
-    
   }
 }

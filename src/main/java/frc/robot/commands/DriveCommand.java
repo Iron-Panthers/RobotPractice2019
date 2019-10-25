@@ -25,8 +25,9 @@ public class DriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    System.out.println("EXECUTE IN DRIVE COMMAND");
     double x = Robot.m_oi.stick1.getX();
-    double y = Robot.m_oi.stick1.getY(); 
+    double y = -Robot.m_oi.stick1.getY(); 
     double left = y + x;
     double right = y - x; 
     double max = Math.max(Math.abs(left), Math.abs(right)); 

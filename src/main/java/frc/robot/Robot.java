@@ -8,14 +8,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.command.Command;
+
+
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drive;
-import frc.robot.subsystems.ExampleSubsystem;
+
 import frc.robot.subsystems.Intake;
 
 /**
@@ -26,15 +27,18 @@ import frc.robot.subsystems.Intake;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
+  private static final String kDefaultAuto = "Default";
+  private static final String kCustomAuto = "My Auto";
+  private String m_autoSelected;
+  private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Hardware hardware;
-  public static OI m_oi;
-  public static Drive drive;
   public static Intake intake;
   public static Arm arm;
+  public static Drive drive;
+  public static OI m_oi;
 
   Command m_autonomousCommand;
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  
 
   /**
    * This function is run when the robot is first started up and should be
@@ -43,14 +47,14 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     hardware = new Hardware();
-    m_oi = new OI();
-    drive = new Drive();
     intake = new Intake();
+    drive = new Drive();
     arm = new Arm();
+    m_oi = new OI();
 
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
+    m_chooser.addOption("My Auto", kCustomAuto);
+    SmartDashboard.putData("Auto choices", m_chooser);
   }
 
   /**
@@ -92,7 +96,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_chooser.getSelected();
+    m_autoSelected = m_chooser.getSelected();
 
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
