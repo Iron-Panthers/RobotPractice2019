@@ -33,10 +33,10 @@ public class ClimbMotorGroup {
 
     }
 
-    public void setEncoderPosition(){
-        climbLeader.getEncoder().setPosition(Constants.ENCODER_POSITION);
-        climbFollower1.getEncoder().setPosition(Constants.ENCODER_POSITION);
-        climbFollower2.getEncoder().setPosition(Constants.ENCODER_POSITION);
+    public void setEncoderPosition(double encoderPosition){
+        climbLeader.getEncoder().setPosition(encoderPosition);
+        climbFollower1.getEncoder().setPosition(encoderPosition);
+        climbFollower2.getEncoder().setPosition(encoderPosition);
     }
 
     public CANEncoder getLeaderEncoder() {
