@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.arm.Arm;
+import frc.robot.subsystems.climb.Climb;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.util.OI;
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
   public static Intake intake;
   public static Arm arm;
   public static Drive drive;
+  public static Climb climb;
   public static OI oi;
 public static Object subsystem;
 
@@ -46,6 +48,7 @@ public static Object subsystem;
     intake = new Intake();
     drive = new Drive();
     arm = new Arm();
+    climb = new Climb();
     oi = new OI();
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);

@@ -5,21 +5,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems.drive.command;
+package frc.robot.subsystems.climb.command;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Hardware;
 import frc.robot.Robot;
 
-public class DriveWithJoystick extends Command {
-
-	private double leftPower, rightPower;
-	private Joystick stick = Robot.oi.stick1;
-
-  public DriveWithJoystick() {
+public class ClimbCommandUp extends Command {
+  public ClimbCommandUp() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.drive);
+    requires(Robot.climb);
   }
 
   // Called just before this Command runs the first time
@@ -30,16 +26,7 @@ public class DriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      double y = -Robot.oi.stick1.getY();
-      double x = Robot.oi.stick1.getX();
-      double leftPower = y + x;
-      double rightPower = y - x;
-      double max = Math.max(Math.abs(leftPower), Math.abs(rightPower));
-      if (max > 1) {
-        leftPower = leftPower /= max;
-        rightPower = rightPower /= max;
-      }
-      Robot.drive.set(leftPower, rightPower);
+    Robot.climb.climbUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -51,11 +38,13 @@ public class DriveWithJoystick extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.climb.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.climb.stop();
   }
 }
