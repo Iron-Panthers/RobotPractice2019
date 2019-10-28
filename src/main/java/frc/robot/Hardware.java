@@ -16,12 +16,19 @@ public class Hardware {
     public DigitalInput forwardLimit, backwardsLimit;
 
     public Hardware(){
+        //intake motor
         intakeMotor = new TalonSRX(Constants.INTAKE_PORT);
+
+        //arm motor
         armMotor = new TalonSRX(Constants.ARM_PORT);
+
+        //drive motors
         leftLeader = new CANSparkMax(Constants.LEFT_LEADER_PORT, MotorType.kBrushless);
         leftFollower = new CANSparkMax(Constants.LEFT_FOLLOWER_PORT, MotorType.kBrushless);
         rightLeader = new CANSparkMax(Constants.RIGHT_LEADER_PORT, MotorType.kBrushless);
         rightFollower = new CANSparkMax(Constants.RIGHT_FOLLOWER_PORT, MotorType.kBrushless);
+
+        //climb motors + digital input
         rightClimbLeader = new CANSparkMax(Constants.RIGHT_CLIMB_L_PORT, MotorType.kBrushless);
         rightClimbFollower1 = new CANSparkMax(Constants.RIGHT_CLIMB_F1_PORT, MotorType.kBrushless);
         rightClimbFollower2 = new CANSparkMax(Constants.RIGHT_CLIMB_F2_PORT, MotorType.kBrushless);

@@ -6,7 +6,7 @@ import com.revrobotics.CANSparkMax;
 
 public class ClimbMotorGroup {
 
-    public CANSparkMax climbLeader, climbFollower1, climbFollower2;
+    private CANSparkMax climbLeader, climbFollower1, climbFollower2;
 
     public ClimbMotorGroup(CANSparkMax leader, CANSparkMax follower1, CANSparkMax follower2) {
         this.climbLeader = leader;
@@ -26,7 +26,6 @@ public class ClimbMotorGroup {
     }
 
     public void setInversion(boolean isInverted) {
-        System.out.println("INVERSION");
         climbLeader.setInverted(isInverted);
         climbFollower1.setInverted(isInverted);
         climbFollower2.setInverted(isInverted);

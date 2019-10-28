@@ -50,8 +50,8 @@ public class Climb extends Subsystem {
       leftGroup.stop();
       rightGroup.stop();
 
-      leftGroup.getLeaderEncoder().setPosition(Constants.ENCODER_POSITION);
-      rightGroup.getLeaderEncoder().setPosition(Constants.ENCODER_POSITION);
+      leftGroup.setEncoderPosition(Constants.ENCODER_POSITION);
+      rightGroup.setEncoderPosition(Constants.ENCODER_POSITION);
     } else{
       leftGroup.set(Constants.CLIMB_UP_POWER);
       rightGroup.set(Constants.CLIMB_UP_POWER);

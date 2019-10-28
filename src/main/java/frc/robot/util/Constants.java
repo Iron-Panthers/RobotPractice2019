@@ -39,5 +39,4 @@ public class Constants{
 
     //encoder position
     public static double ENCODER_POSITION = 140;
-
 }
