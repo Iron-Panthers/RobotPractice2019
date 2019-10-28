@@ -14,18 +14,18 @@ public class Constants{
     public static int LEFT_CLIMB_F2_PORT = 10;
 
     //subsystem ports
-    public static int INTAKE_PORT = 4;
-    public static int ARM_PORT = 6;
+    public static int INTAKE_PORT = 6;
+    public static int ARM_PORT = 4;
 
     //stick ports
     public static int STICK_1_PORT = 2;
     public static int DRIVE_STICK_PORT = 0;
 
     //buttons
-    public static int INTAKE_BUTTON = 2;
+    public static int INTAKE_BUTTON = 5;
     public static int OUTTAKE_BUTTON = 3;
-    public static int CLIMB_UP_BUTTON = 2;
-    public static int CLIMB_DOWN_BUTTON = 3;
+    public static int CLIMB_UP_BUTTON = 1;
+    public static int CLIMB_DOWN_BUTTON = 2;
 
     //powers
     public static double INTAKE_POWER = 0.3;

@@ -25,13 +25,17 @@ public class OI {
   public JoystickButton climbUpButton, climbDownButton;
 
   public OI(){
+    //sticks
     stick1 = new Joystick(Constants.STICK_1_PORT);
+    driveStick = new Joystick(Constants.DRIVE_STICK_PORT);
+    
+    //buttons
     intakeButton = new JoystickButton(stick1, Constants.INTAKE_BUTTON);
     outtakeButton = new JoystickButton(stick1, Constants.OUTTAKE_BUTTON);
-    driveStick = new Joystick(Constants.DRIVE_STICK_PORT);
     climbUpButton = new JoystickButton(driveStick, Constants.CLIMB_UP_BUTTON);
     climbDownButton = new JoystickButton(driveStick, Constants.CLIMB_DOWN_BUTTON);
 
+    //button -> commands
     intakeButton.whileHeld(new IntakeCommand());
     outtakeButton.whileHeld(new OuttakeCommand());
     climbUpButton.whileHeld(new ClimbUpCommand());

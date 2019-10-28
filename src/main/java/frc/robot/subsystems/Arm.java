@@ -24,7 +24,7 @@ public class Arm extends Subsystem {
   private TalonSRX armMotor;
 
   public Arm(){
-    armMotor = Robot.hardware.armMotor;
+    this.armMotor = Robot.hardware.armMotor;
   }
 
   public void set(double power){
