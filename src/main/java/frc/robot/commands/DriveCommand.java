@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class OuttakeCommand extends Command {
-  public OuttakeCommand() {
+public class DriveCommand extends Command {
+  public DriveCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -25,7 +25,7 @@ public class OuttakeCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.outtake(Constants.OUTTAKE_POWER);
+    Robot.drive.set(Constants.DRIVE_POWER, Constants.DRIVE_POWER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,7 +37,7 @@ public class OuttakeCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.stop();
+    Robot.drive.stop();
   }
 
   // Called when another command which requires one or more of the same

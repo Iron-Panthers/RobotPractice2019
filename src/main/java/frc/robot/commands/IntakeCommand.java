@@ -8,13 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Constants;
 import frc.robot.Robot;
 
 public class IntakeCommand extends Command {
   public IntakeCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class IntakeCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.intake(0.7);
+    Robot.intake.intake(Constants.INTAKE_POWER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -44,6 +44,5 @@ public class IntakeCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.intake.stop();
   }
 }

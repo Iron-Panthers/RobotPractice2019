@@ -7,33 +7,37 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Hardware;
+import frc.robot.SparkMaxMotorGroup;
+
 /**
  * Add your docs here.
  */
-public class Intake extends Subsystem {
+public class Climb extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private TalonSRX intakeMotor;
+  private SparkMaxMotorGroup climbGroup1, climbGroup2, climbGroup3;
 
-  public Intake(){
-    intakeMotor = Hardware.intakeMotor;
+  public Climb(){
+    climbGroup1 = new SparkMaxMotorGroup(Hardware.climbMotor1, Hardware.climbMotor2);
+    climbGroup2 = new SparkMaxMotorGroup(Hardware.climbMotor3, Hardware.climbMotor4);
+    climbGroup3 = new SparkMaxMotorGroup(Hardware.climbMotor5, Hardware.climbMotor6);
   }
-  public void intake(double power){
-    intakeMotor.set(ControlMode.PercentOutput, Math.abs(power));
-  }
-  public void outtake(double power){
-    intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));
+  public void set(double speed) {
+    climbGroup1.set(speed);
+    climbGroup2.set(speed);
+    climbGroup3.set(speed);
   }
   public void stop(){
-    intakeMotor.set(ControlMode.PercentOutput, 0);
+    climbGroup1.stop();
+    climbGroup2.stop();
+    climbGroup3.stop();
   }
+  
   @Override
   public void initDefaultCommand() {
-
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
   }
 }

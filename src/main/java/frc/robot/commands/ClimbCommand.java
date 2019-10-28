@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class OuttakeCommand extends Command {
-  public OuttakeCommand() {
+public class ClimbCommand extends Command {
+  public ClimbCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -25,7 +25,7 @@ public class OuttakeCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.outtake(Constants.OUTTAKE_POWER);
+    Robot.climb.set(Constants.CLIMB_POWER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,7 +37,7 @@ public class OuttakeCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.stop();
+    Robot.climb.stop();
   }
 
   // Called when another command which requires one or more of the same
