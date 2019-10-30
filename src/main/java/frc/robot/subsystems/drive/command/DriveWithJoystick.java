@@ -28,7 +28,7 @@ public class DriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      double y = -(Robot.oi.driveStick.getY());
+      double y = -Robot.oi.driveStick.getY();
       double x = Robot.oi.driveStick.getX();
       double leftPower = y + x;
       double rightPower = y - x;
