@@ -25,7 +25,7 @@ public class ArmCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double y = Robot.m_oi.stick1.getY();
+    double y = Robot.m_oi.armStick.getY();
 
     Robot.arm.set(y);
   }

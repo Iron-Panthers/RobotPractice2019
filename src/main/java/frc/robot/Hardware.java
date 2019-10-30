@@ -36,6 +36,7 @@ public class Hardware {
         leftClimbFollower1 = new CANSparkMax(Constants.LEFT_CLIMB_F1_PORT, MotorType.kBrushless);
         leftClimbFollower2 = new CANSparkMax(Constants.LEFT_CLIMB_F2_PORT, MotorType.kBrushless);
 
+        //climb digital inputs
         forwardLimit = new DigitalInput(0);
         backwardsLimit = new DigitalInput(1);
     }

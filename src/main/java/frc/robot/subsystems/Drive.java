@@ -23,7 +23,7 @@ public class Drive extends Subsystem {
   private SparkMaxMotorGroup leftGroup, rightGroup;
 
   public Drive(){
-    leftGroup = new SparkMaxMotorGroup(Robot.hardware.leftLeader, Robot.hardware.rightLeader);
+    leftGroup = new SparkMaxMotorGroup(Robot.hardware.leftLeader, Robot.hardware.leftFollower);
     rightGroup = new SparkMaxMotorGroup(Robot.hardware.rightLeader, Robot.hardware.rightFollower);
     rightGroup.setInversion(Constants.IS_RIGHT_INVERTED);
     leftGroup.setInversion(Constants.IS_LEFT_INVERTED);
@@ -38,7 +38,6 @@ public class Drive extends Subsystem {
     leftGroup.set(0);
     rightGroup.set(0);
   }
-  
 
   @Override
   public void initDefaultCommand() {

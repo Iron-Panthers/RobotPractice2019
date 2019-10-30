@@ -30,7 +30,7 @@ public class Arm extends Subsystem {
   public void set(double power){
     armMotor.set(ControlMode.PercentOutput, power);
   }
-
+  
   public void stop(){
     armMotor.set(ControlMode.PercentOutput, 0);
   }

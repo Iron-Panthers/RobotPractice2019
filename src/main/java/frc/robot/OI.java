@@ -20,18 +20,18 @@ import frc.robot.util.Constants;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  public Joystick stick1, driveStick;
+  public Joystick armStick, driveStick;
   public JoystickButton intakeButton, outtakeButton;
   public JoystickButton climbUpButton, climbDownButton;
 
   public OI(){
     //sticks
-    stick1 = new Joystick(Constants.STICK_1_PORT);
+    armStick = new Joystick(Constants.ARM_STICK_PORT);
     driveStick = new Joystick(Constants.DRIVE_STICK_PORT);
     
     //buttons
-    intakeButton = new JoystickButton(stick1, Constants.INTAKE_BUTTON);
-    outtakeButton = new JoystickButton(stick1, Constants.OUTTAKE_BUTTON);
+    intakeButton = new JoystickButton(armStick, Constants.INTAKE_BUTTON);
+    outtakeButton = new JoystickButton(armStick, Constants.OUTTAKE_BUTTON);
     climbUpButton = new JoystickButton(driveStick, Constants.CLIMB_UP_BUTTON);
     climbDownButton = new JoystickButton(driveStick, Constants.CLIMB_DOWN_BUTTON);
 

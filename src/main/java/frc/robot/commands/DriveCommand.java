@@ -25,15 +25,15 @@ public class DriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double x = Robot.m_oi.stick1.getX();
-    double y = -Robot.m_oi.stick1.getY(); 
+    double x = Robot.m_oi.driveStick.getX();
+    double y = -Robot.m_oi.driveStick.getY(); 
     double left = y + x;
     double right = y - x; 
-    double max = Math.max(Math.abs(left), Math.abs(right)); 
+    double greatest = Math.max(Math.abs(left), Math.abs(right)); 
     
-    if(max > 1){
-      left /= max;
-      right /= max;
+    if(greatest > 1){
+      left /= greatest;
+      right /= greatest;
     } 
 
     Robot.drive.set(left, right);

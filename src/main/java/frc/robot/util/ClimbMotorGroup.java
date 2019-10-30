@@ -1,7 +1,6 @@
 
 package frc.robot.util;
 
-import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 
 public class ClimbMotorGroup {
@@ -37,17 +36,4 @@ public class ClimbMotorGroup {
         climbFollower1.getEncoder().setPosition(encoderPosition);
         climbFollower2.getEncoder().setPosition(encoderPosition);
     }
-
-    public CANEncoder getLeaderEncoder() {
-        return climbLeader.getEncoder();
-    }
-
-    public CANEncoder getFollower1Encoder() {
-        return climbFollower1.getEncoder();
-    }
-
-    public CANEncoder getFollower2Encoder() {
-        return climbFollower2.getEncoder();
-    }
-
 }
