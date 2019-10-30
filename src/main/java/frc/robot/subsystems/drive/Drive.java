@@ -7,10 +7,10 @@
 
 package frc.robot.subsystems.drive;
 
-import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.Hardware;
+import frc.robot.Robot;
+import frc.robot.util.SparkMaxMotorGroup;
 import frc.robot.subsystems.drive.command.DriveWithJoystick;
 
 /**
@@ -19,25 +19,20 @@ import frc.robot.subsystems.drive.command.DriveWithJoystick;
 public class Drive extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private CANSparkMax leftMotor1;
-  private CANSparkMax leftMotor2;
-  private CANSparkMax rightMotor1;
-  private CANSparkMax rightMotor2;
+  public SparkMaxMotorGroup leftDrive;
+  public SparkMaxMotorGroup rightDrive; 
 
   public Drive() {
-    leftMotor1 = Hardware.leftMotor1;
-    leftMotor2 = Hardware.leftMotor2;
-    rightMotor1 = Hardware.rightMotor1;
-    rightMotor2 = Hardware.rightMotor2;
+    leftDrive = Robot.hardware.leftDrive;
+    rightDrive = Robot.hardware.rightDrive;
   }
   
 
   public void set(double leftPower, double rightPower) {
-    leftMotor1.set(leftPower);
-    leftMotor2.set(leftPower);
-    rightMotor1.set(rightPower);
-    rightMotor2.set(rightPower);
-	}
+    leftDrive.set(leftPower);
+    rightDrive.set(rightPower);
+  }
+  
 
 
   @Override

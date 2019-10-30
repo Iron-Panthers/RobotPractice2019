@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems.arm.command;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -27,7 +26,7 @@ public class ArmWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      double y = Robot.oi.joystickVroom.getY();
+      double y = Robot.oi.climbStick.getY();
       Robot.arm.set(y);
     }
 

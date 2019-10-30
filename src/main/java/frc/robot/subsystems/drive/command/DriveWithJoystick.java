@@ -7,14 +7,12 @@
 
 package frc.robot.subsystems.drive.command;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class DriveWithJoystick extends Command {
 
-	private double leftPower, rightPower;
-	private Joystick stick = Robot.oi.stick1;
+
 
   public DriveWithJoystick() {
     // Use requires() here to declare subsystem dependencies
@@ -30,8 +28,8 @@ public class DriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-      double y = -Robot.oi.stick1.getY();
-      double x = Robot.oi.stick1.getX();
+      double y = -(Robot.oi.driveStick.getY());
+      double x = Robot.oi.driveStick.getX();
       double leftPower = y + x;
       double rightPower = y - x;
       double max = Math.max(Math.abs(leftPower), Math.abs(rightPower));
@@ -40,6 +38,8 @@ public class DriveWithJoystick extends Command {
         rightPower = rightPower /= max;
       }
       Robot.drive.set(leftPower, rightPower);
+      System.out.println("Left Power: " +leftPower);
+      System.out.println("Right Power: " + rightPower);
   }
 
   // Make this return true when this Command no longer needs to run execute()
