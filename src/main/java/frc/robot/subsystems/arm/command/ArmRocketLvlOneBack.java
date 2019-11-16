@@ -22,7 +22,7 @@ public class ArmRocketLvlOneBack extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.arm.target = 180 - Robot.arm.armToTarget(Constants.Arm.ROCKET_LOW_HEIGHT);
+    Robot.arm.ArmToTarget(Constants.Arm.ROCKET_LOW_HEIGHT, false);
   }
 
   // Called repeatedly when this Command is scheduled to run

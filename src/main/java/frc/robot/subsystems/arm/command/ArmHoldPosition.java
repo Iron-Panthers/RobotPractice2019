@@ -25,7 +25,6 @@ public class ArmHoldPosition extends Command {
   @Override
   protected void initialize() {
     Robot.arm.target = Robot.arm.getCurrentAngle();
-  
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -51,5 +50,6 @@ public class ArmHoldPosition extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+
   }
 }

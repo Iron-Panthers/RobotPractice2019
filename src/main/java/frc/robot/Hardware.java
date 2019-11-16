@@ -54,8 +54,5 @@ public class Hardware {
         climbRightMotor1.setInverted(true);
         climbRightMotor2.setInverted(true);
         climbRightMotor3.setInverted(true);
-        armMotor.setInverted(true);
-
-
     }
 }

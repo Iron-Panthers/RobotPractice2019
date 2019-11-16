@@ -24,7 +24,7 @@ public class ArmCargoShipCargo extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.arm.target = Robot.arm.armToTarget(Constants.Arm.CARGO_SHIP_HEIGHT);
+    Robot.arm.ArmToTarget(Constants.Arm.CARGO_SHIP_HEIGHT, true);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -33,6 +33,9 @@ public class ArmCargoShipCargo extends Command {
     Robot.arm.currentError = Robot.arm.target - Robot.arm.getCurrentAngle();
     double power = (Constants.Arm.INTAKE_ARM_P * Robot.arm.currentError) + Robot.arm.getBasePower();
     Robot.arm.set(power);
+    System.out.println("Arm Target:" + Robot.arm.target);
+    System.out.println("Arm Power: " + power);
+    System.out.println("Error: " + Math.abs(Robot.arm.target - Robot.arm.getCurrentAngle()));
   }
 
 

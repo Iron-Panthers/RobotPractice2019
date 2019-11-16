@@ -37,8 +37,7 @@ public class Constants {
 
 		// INTAKE ARM PID
 		public static final double INTAKE_ARM_MAX_POWER = 0.35;
-		public static final double INTAKE_ARM_P = 0.1; // New motor as of 9/10/19, decreased the P from 0.1 to 0.07,
-														// 9/21/10 Increased to 0.1 during Bellarmine Practice.
+		public static final double INTAKE_ARM_P = 0.002; //Robot smoked cause went to fast p is equal to .35(max power we want) divided by 180(max possible error)
 		public static final double INTAKE_ARM_I = 0;
 		public static final double INTAKE_ARM_D = 0;
 		public static final double ERROR_TOLERANCE = 3; // degrees

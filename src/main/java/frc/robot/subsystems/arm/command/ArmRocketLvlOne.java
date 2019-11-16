@@ -22,7 +22,7 @@ public class ArmRocketLvlOne extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.arm.target = Robot.arm.armToTarget(Constants.Arm.ROCKET_LOW_HEIGHT);
+    Robot.arm.ArmToTarget(Constants.Arm.ROCKET_LOW_HEIGHT, true);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -31,6 +31,9 @@ public class ArmRocketLvlOne extends Command {
     Robot.arm.currentError = Robot.arm.target - Robot.arm.getCurrentAngle();
     double power = (Constants.Arm.INTAKE_ARM_P * Robot.arm.currentError) + Robot.arm.getBasePower() ;
     Robot.arm.set(power);  
+    System.out.println("Arm Target:" + Robot.arm.target);
+    System.out.println("Arm Power: " + power);
+    System.out.println("Error: " + Math.abs(Robot.arm.target - Robot.arm.getCurrentAngle()));
   }
 
   // Make this return true when this Command no longer needs to run execute()

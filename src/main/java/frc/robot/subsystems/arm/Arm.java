@@ -60,12 +60,17 @@ public class Arm extends Subsystem {
 				* Math.cos(getCurrentAngle() * Constants.Arm.DEGRESS_TO_RADIANS);
 		return basePower;
   }
-  public double armToTarget(double targetHeight) {
-    return Robot.arm.target = (Math.asin(targetHeight / Constants.Arm.ARM_LENGTH)
-          * Constants.Arm.RADIANS_TO_DEGREES);
-  }
+  public void ArmToTarget(double targetHeight, boolean isFront) {
+		if (!isFront) {
+			this.target = 180 - (Math.asin(targetHeight / Constants.Arm.ARM_LENGTH)
+					* Constants.Arm.RADIANS_TO_DEGREES);
+		} else {
+			this.target = (Math.asin(targetHeight / Constants.Arm.ARM_LENGTH)
+					* Constants.Arm.RADIANS_TO_DEGREES);
+		}
+	}
   public boolean isFinished() {
-  if ((Math.abs(Robot.arm.target - Robot.arm.getCurrentAngle())) <= 2) {
+  if ((Math.abs(Robot.arm.target - Robot.arm.getCurrentAngle())) <= Constants.Arm.ERROR_TOLERANCE) {
      return true;
   } else {
      return false;
@@ -76,7 +81,6 @@ public class Arm extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new ArmHoldPosition());
   }
 }
