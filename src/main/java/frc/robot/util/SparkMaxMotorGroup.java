@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -6,8 +5,6 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-=======
->>>>>>> DriveBase
 package frc.robot.util;
 
 import com.revrobotics.CANError;
@@ -16,13 +13,10 @@ import com.revrobotics.CANSparkMax.IdleMode;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-<<<<<<< HEAD
 /**
  * SparkMaxMotorGroup is a flexible-size grouping of the Spark Max motor
  * controller, which provides for some utility methods for controlling them.
  */
-=======
->>>>>>> DriveBase
 public class SparkMaxMotorGroup {
 	private CANSparkMax masterMotor;
 	private CANSparkMax[] motors;
