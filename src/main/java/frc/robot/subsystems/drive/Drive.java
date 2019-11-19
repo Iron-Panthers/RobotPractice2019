@@ -1,4 +1,5 @@
 package frc.robot.subsystems.drive;
+<<<<<<< HEAD
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -15,4 +16,16 @@ public class Drive extends Subsystem {
 
     }
 
+=======
+
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+public class Drive extends Subsystem {
+
+    @Override
+    protected void initDefaultCommand() {
+
+    }
+    
+>>>>>>> DriveBase
 }

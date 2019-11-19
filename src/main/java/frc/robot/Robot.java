@@ -26,8 +26,11 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   public static Drive drive; 
+<<<<<<< HEAD
   public static Hardware hardware; 
 
+=======
+>>>>>>> DriveBase
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -37,9 +40,13 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+<<<<<<< HEAD
 
     drive = new Drive(); 
     hardware = new Hardware(); 
+=======
+    drive = new Drive(); 
+>>>>>>> DriveBase
   }
 
   /**
