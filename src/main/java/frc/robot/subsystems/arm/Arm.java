@@ -21,6 +21,7 @@ public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public TalonSRX armMotor;
+  public double target; //in degrees
 
   public Arm() {
     armMotor = Robot.hardware.armMotor;

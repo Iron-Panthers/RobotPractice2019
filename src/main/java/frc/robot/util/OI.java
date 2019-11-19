@@ -10,6 +10,7 @@ package frc.robot.util;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.subsystems.arm.commands.armWithJoystick;
+import frc.robot.subsystems.arm.commands.setZero;
 
 
 /**
@@ -17,7 +18,7 @@ import frc.robot.subsystems.arm.commands.armWithJoystick;
  */
 public class OI {
     public Joystick armStick;
-    public JoystickButton intakeButton, outtakeButton, armButton;
+    public JoystickButton intakeButton, outtakeButton, armButton, setZeroButton;
 
 
     public OI() {
@@ -25,8 +26,10 @@ public class OI {
         
         intakeButton = new JoystickButton(armStick, 1);
         outtakeButton = new JoystickButton(armStick, 2);
+        setZeroButton = new JoystickButton(armStick, 4);
 
         armButton = new  JoystickButton(armStick, 1);
+        setZeroButton.whenPressed(new setZero());
         armButton.whileHeld(new armWithJoystick());
        
     }
