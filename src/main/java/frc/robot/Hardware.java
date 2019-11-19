@@ -1,7 +1,11 @@
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.sensors.PigeonIMU;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import frc.robot.util.SparkMaxMotorGroup;
 
 public class Hardware {
     /* Drivebase motor controllers */
@@ -9,6 +13,13 @@ public class Hardware {
     public CANSparkMax leftFollower; 
     public CANSparkMax rightLeader; 
     public CANSparkMax rightFollower; 
+
+    public TalonSRX gyroTestMotor; 
+    public PigeonIMU gyro; 
+
+    /* Drivebase MotorGroups */
+    public SparkMaxMotorGroup leftDriveMotors; 
+    public SparkMaxMotorGroup rightDriveMotors; 
 
     public Hardware() {
         leftLeader = new CANSparkMax(0, MotorType.kBrushless); 

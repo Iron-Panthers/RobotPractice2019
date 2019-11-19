@@ -1,5 +1,12 @@
-package frc.robot.subsystems.drive; 
+package frc.robot.subsystems.drive;
 
-public class Drive {
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+public class Drive extends Subsystem {
+
+    @Override
+    protected void initDefaultCommand() {
+
+    }
     
 }
