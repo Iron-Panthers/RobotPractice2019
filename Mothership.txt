@@ -1,0 +1,57 @@
+Deadline: 26th
+- Drive
+- Climb
+- Arm
+- Intake (Cargo/Hatch Panels)
+
+Drivebase:
+4 Spark Maxes, two on each side, piston for shifting (solenoid)
+
+Driving by 11/19 by dinner, shifting by the end of 11/19
+
+Climb:
+6 Spark Maxes, three on each side, two limit switches for top and button, piston for extending superstructure
+
+Moving by 11/19 at 5pm, pistons and limit switches for hard stops and soft stops by end of 11/19
+
+
+Arm:
+1 TalonSRX
+
+Moving (manual control) by 11/18 at 5pm, PID tuning by end of 11/23, setpoints by 11/26
+
+Intake:
+1 TalonSRX, two solenoids, one for hatch intake/outtake, other for hatch throwing
+
+Intaking/Outtaking Cargo by 11/19 4:30pm, hatch and yeet pistons by Friday 11/23 4pm
+
+Driving:
+Controlled with a joystick, which can drive and shift gears, Hubert likes it
+
+Intaking/Arm:
+Button for intaking cargo, another for outtaking cargo, button for intaking hatch, and other for outtaking hatch, button for manual control. 
+5 setpoints using PID
+
+Climbing:
+Control with joystick, stops at limit switches
+
+Drive control team:
+- Jay
+- Angelina
+- Sarah
+- Kai
+- Jessica
+
+Climb:
+- Arnav
+- Ethan
+
+Arm:
+- Ilan
+
+Intake:
+- Yans
+- Racheal
+- Maddy
+
+
