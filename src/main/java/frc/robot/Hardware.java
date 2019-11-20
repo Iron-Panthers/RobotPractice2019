@@ -20,10 +20,10 @@ public class Hardware {
     public PigeonIMU gyro; 
 
     /* Drivebase MotorGroups */
-    public final SparkMaxMotorGroup leftDriveMotors = null;
-	public final SparkMaxMotorGroup rightDriveMotors = null;
+    public SparkMaxMotorGroup leftDriveMotors;
+	public SparkMaxMotorGroup rightDriveMotors;
     
-    public final Solenoid gearShift = null;
+    public Solenoid gearShift;
 
     public Hardware() {
         /* Drivebase motor controller creation */
@@ -34,6 +34,7 @@ public class Hardware {
         rightFollower = new CANSparkMax(Constants.Drivebase.RIGHT_FOLLOWER_MOTOR_PORT , MotorType.kBrushless);
         
         /* Drivebase configuration */
-        
+        rightDriveMotors = new SparkMaxMotorGroup("Right Drive Motor Group", rightLeader, rightFollower); 
+        leftDriveMotors = new SparkMaxMotorGroup("Left Drive Motor Group", leftLeader, leftFollower); 
     }
 }
