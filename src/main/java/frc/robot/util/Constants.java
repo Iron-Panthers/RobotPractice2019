@@ -13,5 +13,7 @@ public class Constants {
         /* DRIVEBASE CONSTANTS */    
         public static final boolean IS_LEFT_INVERTED = true;
         public static final boolean IS_RIGHT_INVERTED = false; 
+        
+        public static final double RAMP_RATE = 0.25; 
     }
 }
