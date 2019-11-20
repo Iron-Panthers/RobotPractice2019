@@ -14,7 +14,8 @@ public class Constants {
     public static final boolean IS_RIGHT_INVERTED = true; 
     }
 
-    public static final double LEFT_MOTOR_POWER = 0.3;
-    public static final double RIGHT_MOTOR_POWER = 0.3;
+    public static final double LEFT_POWER = 0.3;
+    public static final double RIGHT_POWER = 0.3;
 
+    public static final boolean SOLENOID = true;
 }
