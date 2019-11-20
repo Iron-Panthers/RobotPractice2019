@@ -5,10 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
-import frc.robot.Robot;
+package frc.robot.Commands;
 
-import java.util.Set;
+import frc.robot.Constants;
+import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -26,7 +26,7 @@ public class Outtake extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    set.OuttakeMotor(-0.5);
+    Robot.intake.outtake(Constants.OUTTAKE_POWER);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,14 +38,13 @@ public class Outtake extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.Outtake.setNeutral();
+    Robot.intake.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.Outtake.setNeutral();
   
   }
 }
