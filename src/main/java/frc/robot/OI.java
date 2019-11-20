@@ -33,8 +33,8 @@ public class OI {
     outtakeHatchButton = new JoystickButton(stick2, Constants.OUTTAKE_HATCH_BUTTON);
     intakeButton.whileHeld(new IntakeCommands());
     outtakeButton.whileHeld(new Outtake());
-    intakeHatchButton.whenPressed(new IntakeHatch());
-    outtakeHatchButton.whenPressed(new OuttakeHatch());
+    intakeHatchButton.whileHeld(new IntakeHatch());
+    outtakeHatchButton.whileHeld(new OuttakeHatch());
   }
   
 

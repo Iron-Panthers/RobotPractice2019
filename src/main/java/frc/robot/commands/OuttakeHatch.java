@@ -14,19 +14,20 @@ public class OuttakeHatch extends Command {
   public OuttakeHatch() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.intake);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.intake.hatchOuttake();
-    Robot.intake.extendHatchPistons();
+    //Robot.intake.hatchOuttake();
+    //Robot.intake.extendHatchPistons();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.intake.hatchOuttake();
+    Robot.intake.extendHatchPistons();
   }
 
   // Make this return true when this Command no longer needs to run execute()
