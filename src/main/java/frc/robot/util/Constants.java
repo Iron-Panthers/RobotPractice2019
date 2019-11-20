@@ -24,5 +24,11 @@ public class Constants {
     public class Input {
         /* Device Ports */
         public static final int JOYSTICK_1_PORT = 0; 
+
+        /* Buttons */
+        // Driver 1
+        public static final int REVERSE_DRIVE_BUTTON = 1; 
+        public static final int SHIFT_GEAR_LOW_BUTTON = 2;  
+        public static final int GO_FORWARD_BUTTON = 3; 
     }
 }
