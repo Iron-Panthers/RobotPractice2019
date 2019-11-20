@@ -6,6 +6,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.Solenoid;
+import frc.robot.util.Constants;
 import frc.robot.util.SparkMaxMotorGroup;
 
 public class Hardware {
@@ -21,6 +22,7 @@ public class Hardware {
     /* Drivebase MotorGroups */
     public SparkMaxMotorGroup leftDriveMotors; 
     public SparkMaxMotorGroup rightDriveMotors; 
+    // hello 
 
     /* Climb motor controllers and pneumatics */
     public Solenoid gearShift; 
@@ -32,6 +34,6 @@ public class Hardware {
         rightLeader = new CANSparkMax(2, MotorType.kBrushless); 
         rightFollower = new CANSparkMax(3, MotorType.kBrushless); 
         
-        // gearShift = new Solenoid(Constants.Drivebase.GEAR_SHIFT_PORT); 
+        gearShift = new Solenoid(Constants.Drivebase.GEAR_SHIFT_PORT); 
     }
 }
