@@ -6,7 +6,7 @@ import frc.robot.Robot;
 import frc.robot.util.SparkMaxMotorGroup;
 
 public class Drive extends Subsystem {
-    private SparkMaxMotorGroup left = Robot.hardware.leftDriveMotors; 
+    private SparkMaxMotorGroup left = Robot.hardware.leftDriveMotors;
     private SparkMaxMotorGroup right = Robot.hardware.rightDriveMotors;
     public Solenoid gearShift = Robot.hardware.gearShift; 
 
