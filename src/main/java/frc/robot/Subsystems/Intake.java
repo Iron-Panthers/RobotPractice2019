@@ -10,6 +10,7 @@ package frc.robot.Subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 
 /**
  * Add your docs here.
@@ -19,17 +20,17 @@ public class Intake extends Subsystem {
   // here. Call these from Commands.
   private TalonSRX intakeMotor;
 
-  public Intake(){
-    intakeMotor = Hardware.intakeMotor;
+  public Intake() {
+    intakeMotor = Robot.hardware.motor;
   }
-  public void intake(double power){
-    intakeMotor.set(ControlMode.PercentOutput, Math.abs(power));;
+  public void intake(double power) {
+    intakeMotor.set(ControlMode.PercentOutput, Math.abs(power));
   }
-  public void outtake(double power){
-    intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));;
+  public void outtake(double power) {
+    intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));
   }
-  public void stop(){
-    intakeMotor.set(ControlMode.PercentOutput, 0);;
+  public void stop() {
+    intakeMotor.set(ControlMode.PercentOutput, 0);
   }
   @Override
   public void initDefaultCommand() {
