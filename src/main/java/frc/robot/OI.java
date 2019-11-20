@@ -9,8 +9,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.Commands.IntakeHatch;
-import frc.robot.Commands.OuttakeHatch;
+import frc.robot.commands.IntakeCommands;
+import frc.robot.commands.IntakeHatch;
+import frc.robot.commands.Outtake;
+import frc.robot.commands.OuttakeHatch;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,6 +31,8 @@ public class OI {
     outtakeButton = new JoystickButton(stick2, Constants.JOYSTICK_OUTTAKE_BUTTON_PORT);
     intakeHatchButton = new JoystickButton(stick2, Constants.INTAKE_HATCH_BUTTON);
     outtakeHatchButton = new JoystickButton(stick2, Constants.OUTTAKE_HATCH_BUTTON);
+    intakeButton.whileHeld(new IntakeCommands());
+    outtakeButton.whileHeld(new Outtake());
     intakeHatchButton.whenPressed(new IntakeHatch());
     outtakeHatchButton.whenPressed(new OuttakeHatch());
   }
