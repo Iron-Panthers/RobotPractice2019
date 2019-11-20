@@ -12,8 +12,6 @@ import frc.robot.Robot;
 
 public class ArcadeDrive extends Command {
 
-  private double leftPower, rightPower; 
-
   public ArcadeDrive() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);

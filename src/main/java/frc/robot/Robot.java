@@ -27,9 +27,9 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
 
-  public static Drive drive; 
   public static OI oi; 
   public static Hardware hardware; 
+  public static Drive drive; 
   
 
   Command m_autonomousCommand; 
@@ -45,9 +45,9 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
 
-    drive = new Drive(); 
     hardware = new Hardware(); 
     oi = new OI(); 
+    drive = new Drive(); 
   }
 
   /**
