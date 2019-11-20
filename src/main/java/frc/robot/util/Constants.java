@@ -13,7 +13,16 @@ public class Constants {
         /* DRIVEBASE CONSTANTS */    
         public static final boolean IS_LEFT_INVERTED = true;
         public static final boolean IS_RIGHT_INVERTED = false; 
-        
+        public static final boolean IS_DRIVEBASE_BACKWARDS = true; 
+
+        public static final double TURN_SENSITIVITY = 1; 
         public static final double RAMP_RATE = 0.25; 
+        
+        public static final double SCALING_POWER = 2.75; 
+    }
+
+    public class Input {
+        /* Device Ports */
+        public static final int JOYSTICK_1_PORT = 0; 
     }
 }

@@ -9,8 +9,12 @@ package frc.robot.subsystems.drive.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.util.JoystickWrapper;
 
 public class ArcadeDrive extends Command {
+
+  private double leftPower, rightPower;
+  private JoystickWrapper stick = Robot.oi.stick1;
 
   public ArcadeDrive() {
     // Use requires() here to declare subsystem dependencies
@@ -26,7 +30,38 @@ public class ArcadeDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    stick.update(); 
+    rightPower = stick.findRightPower() + stick.skim(stick.findLeftPower()); 
+    leftPower = stick.findLeftPower() + stick.skim(stick.findRightPower()); 
+    double[] powers = {leftPower, rightPower}; 
+    powers = scalePower(powers); 
+    Robot.drive.set(powers[0], powers[1]); 
   }
+
+  public double[] scalePower(double[] powers) {
+		// Checks if the array needs to be scaled
+		boolean isOverOne = false;
+		for (double element : powers) {
+			if (Math.abs(element) > 1) {
+				isOverOne = true;
+				break;
+			}
+		}
+		if (!isOverOne) {
+			return powers;
+		}
+		// Finds the highest value
+		double greatestPower = powers[0];
+		if (Math.abs(powers[1]) > greatestPower) {
+			greatestPower = Math.abs(powers[1]);
+		}
+		// Scales all values
+		for (int i = 0; i < powers.length; i++) {
+			powers[i] /= greatestPower;
+		}
+		
+		return powers;
+	}
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

@@ -5,11 +5,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 public class OI {
-    public Joystick driveJoystick;
-    public JoystickButton joystickButton;
+    public JoystickWrapper stick1;
 
     public OI() {
-        driveJoystick = new Joystick(1);
-        joystickButton = new JoystickButton(driveJoystick, 2);
+        stick1 = new JoystickWrapper(Constants.Input.JOYSTICK_1_PORT); 
     }
 }
