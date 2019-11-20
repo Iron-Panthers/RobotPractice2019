@@ -10,7 +10,6 @@ public class SparkMaxMotorGroup {
         this.leaderMotor = leaderMotor;
         this.followerMotor = followerMotor;
         this.followerMotor.follow(leaderMotor);
-
     }
 
     public void set(double power) {
@@ -21,4 +20,14 @@ public class SparkMaxMotorGroup {
         leaderMotor.setInverted(isInverted);
         followerMotor.setInverted(isInverted);
     }
+
+    public void setStop(boolean isStop)
+    {
+        leaderMotor.setStop(isStop);
+
+    }
+    //this is the SparkMaxMotorGroup Class.....
+
+    
+
 }

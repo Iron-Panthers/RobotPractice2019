@@ -6,6 +6,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import frc.robot.util.Constants;
 
+public SparkMaxMotorGroup right;
+public SparkMaxMotorGroup left;
 
 public class Hardware {
     public TalonSRX intakeMotor;
@@ -22,4 +24,6 @@ public class Hardware {
         leftFollower = new CANSparkMax(Constants.LEFT_LEADER_MOTOR_PORT, MotorType.kBrushless);
         rightFollower = new CANSparkMax(Constants.RIGHT_FOLLOWER_MOTOR_PORT , MotorType.kBrushless);
     }
-}
+
+//hellohello
+}fffffffffffffss
