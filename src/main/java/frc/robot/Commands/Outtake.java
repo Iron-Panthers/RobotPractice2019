@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.Commands;
 
 import frc.robot.Constants;
 import frc.robot.Robot;

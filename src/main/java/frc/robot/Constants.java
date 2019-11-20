@@ -11,4 +11,6 @@ public class Constants {
     public static final int HATCH_OUTTAKE_PISTONS_SOLDNOID_PORT = 0; //yeets pistons B)
     public static final double INTAKE_POWER = 0.3;
     public static final double OUTTAKE_POWER = 0.3;
+    public static final int INTAKE_HATCH_BUTTON = 6;
+    public static final int OUTTAKE_HATCH_BUTTON = 5;
 }

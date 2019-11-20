@@ -9,18 +9,31 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.Commands.IntakeHatch;
+import frc.robot.Commands.OuttakeHatch;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  public Joystick stick1;
-  public JoystickButton button1;
+  public Joystick stick2;
+  public JoystickButton intakeButton;
+  public JoystickButton outtakeButton;
+  public JoystickButton intakeHatchButton;
+  public JoystickButton outtakeHatchButton;
+
   public OI() {
-    stick1 = new Joystick(Constants.JOYSTICK_PORT);
-    button1 = new JoystickButton(stick1, Constants.JOYSTICK_INTAKE_BUTTON_PORT);
+    stick2 = new Joystick(Constants.JOYSTICK_PORT);
+    intakeButton = new JoystickButton(stick2, Constants.JOYSTICK_INTAKE_BUTTON_PORT);
+    outtakeButton = new JoystickButton(stick2, Constants.JOYSTICK_OUTTAKE_BUTTON_PORT);
+    intakeHatchButton = new JoystickButton(stick2, Constants.INTAKE_HATCH_BUTTON);
+    outtakeHatchButton = new JoystickButton(stick2, Constants.OUTTAKE_HATCH_BUTTON);
+    intakeHatchButton.whenPressed(new IntakeHatch());
+    outtakeHatchButton.whenPressed(new OuttakeHatch());
   }
+  
+
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
