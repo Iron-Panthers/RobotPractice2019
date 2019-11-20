@@ -7,13 +7,11 @@
 
 package frc.robot.commands;
 
-import frc.robot.Constants;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
-
-public class Outtake extends Command {
-  public Outtake() {
+public class IntakeHatch extends Command {
+  public IntakeHatch() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -21,12 +19,13 @@ public class Outtake extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    requires(Robot.intake);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.intake.outtake(Constants.OUTTAKE_POWER);
+    Robot.intake.hatchIntake();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,13 +37,12 @@ public class Outtake extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.intake.stop();
+    
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-  
   }
 }
