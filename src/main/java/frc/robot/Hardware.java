@@ -34,5 +34,9 @@ public class Hardware {
         rightFollower = new CANSparkMax(3, MotorType.kBrushless); 
         
         gearShift = new Solenoid(Constants.Drivebase.GEAR_SHIFT_PORT); 
+    
+        /* Drivebase configuration */
+        rightDriveMotors = new SparkMaxMotorGroup("Right Drive Motor Group", rightLeader, rightFollower); 
+        leftDriveMotors = new SparkMaxMotorGroup("Left Drive Motor Group", leftLeader, leftFollower); 
     }
 }
