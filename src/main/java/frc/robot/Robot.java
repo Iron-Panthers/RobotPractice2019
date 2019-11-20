@@ -22,6 +22,7 @@ import frc.robot.Subsystems.Intake;
 public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
+public static Object intake;
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Hardware hardware;
