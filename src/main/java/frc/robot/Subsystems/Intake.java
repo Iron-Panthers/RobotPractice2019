@@ -9,28 +9,37 @@ package frc.robot.Subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.Robot;
+import frc.robot.Hardware;
 
-/**
- * Add your docs here.
- */
 public class Intake extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private TalonSRX intakeMotor;
+  private Solenoid hatchFingers;
+  private Solenoid hatchThrowing;
 
-  public Intake() {
-    intakeMotor = Robot.hardware.motor;
+  public Intake(){
+    intakeMotor = Hardware.intakeMotor;
+    hatchFingers = Hardware.hatchFingers;
+    hatchThrowing = Hardware.hatchThrowing;
   }
-  public void intake(double power) {
+  public void intake(double power){
     intakeMotor.set(ControlMode.PercentOutput, Math.abs(power));
+    hatchFingers.set(true);
+    hatchThrowing.set(true);
+
   }
-  public void outtake(double power) {
+  public void outtake(double power){
     intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));
+    hatchFingers.set(false);
+    hatchThrowing.set(false);
   }
-  public void stop() {
+  public void stop(){
     intakeMotor.set(ControlMode.PercentOutput, 0);
+    hatchFingers.set(false);
+    hatchThrowing.set(false);
   }
   @Override
   public void initDefaultCommand() {
