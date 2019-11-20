@@ -8,9 +8,12 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.drive.Drive;
+import frc.robot.util.OI;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,10 +26,13 @@ public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
-  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   public static Drive drive; 
   public static Hardware hardware; 
+  public static OI oi; 
+
+  Command m_autonomousCommand; 
+  private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -40,6 +46,7 @@ public class Robot extends TimedRobot {
 
     drive = new Drive(); 
     hardware = new Hardware(); 
+    oi = new OI(); 
   }
 
   /**
@@ -77,22 +84,22 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-        // Put custom auto code here
-        break;
-      case kDefaultAuto:
-      default:
-        // Put default auto code here
-        break;
-    }
+    Scheduler.getInstance().run(); 
   }
 
   /**
    * This function is called periodically during operator control.
    */
   @Override
+  public void teleopInit() {
+    if (m_autonomousCommand != null) {
+      m_autonomousCommand.cancel(); 
+    }
+  }
+  
+  @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run(); 
   }
 
   /**
