@@ -28,8 +28,9 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
 
   public static Drive drive; 
-  public static Hardware hardware; 
   public static OI oi; 
+  public static Hardware hardware; 
+  
 
   Command m_autonomousCommand; 
   private final SendableChooser<String> m_chooser = new SendableChooser<>();

@@ -1,8 +1,6 @@
 <<<<<<< HEAD
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.sensors.PigeonIMU;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -10,7 +8,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import frc.robot.util.Constants;
 import frc.robot.util.SparkMaxMotorGroup;
 
-public class Hardware {
+public class Hardware<PigeonIMU, TalonSRX> {
     /* Drivebase motor controllers */
     public CANSparkMax leftLeader; 
     public CANSparkMax leftFollower; 
