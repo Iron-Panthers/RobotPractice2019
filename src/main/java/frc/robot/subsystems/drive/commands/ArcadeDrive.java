@@ -8,6 +8,7 @@
 package frc.robot.subsystems.drive.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 public class ArcadeDrive extends Command {
 
@@ -16,7 +17,7 @@ public class ArcadeDrive extends Command {
   public ArcadeDrive() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.drive)
+    requires(Robot.drive);
   }
 
   // Called just before this Command runs the first time
