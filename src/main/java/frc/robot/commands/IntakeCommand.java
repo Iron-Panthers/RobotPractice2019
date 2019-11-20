@@ -1,11 +1,11 @@
-package frc.robot.Commands;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class IntakeCommands extends Command {
-    public IntakeCommands () {
+public class IntakeCommand extends Command {
+    public IntakeCommand() {
     }
 	protected void initialize() {
     }

@@ -9,13 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.Commands.IntakeHatch;
-import frc.robot.Commands.OuttakeHatch;
+import frc.robot.commands.IntakeHatch;
+import frc.robot.commands.OuttakeHatch;
 
-/**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
 public class OI {
   public Joystick stick2;
   public JoystickButton intakeButton;
@@ -29,10 +25,10 @@ public class OI {
     outtakeButton = new JoystickButton(stick2, Constants.JOYSTICK_OUTTAKE_BUTTON_PORT);
     intakeHatchButton = new JoystickButton(stick2, Constants.INTAKE_HATCH_BUTTON);
     outtakeHatchButton = new JoystickButton(stick2, Constants.OUTTAKE_HATCH_BUTTON);
-    intakeHatchButton.whenPressed(new IntakeHatch());
-    outtakeHatchButton.whenPressed(new OuttakeHatch());
+    intakeHatchButton.whileHeld(new IntakeHatch());
+    outtakeHatchButton.whileHeld(new OuttakeHatch());
   }
-  
+}
 
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
@@ -61,4 +57,3 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-}

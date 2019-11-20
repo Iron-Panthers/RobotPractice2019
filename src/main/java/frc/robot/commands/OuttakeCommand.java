@@ -5,15 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.Commands;
+package frc.robot.commands;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Outtake extends Command {
-  public Outtake() {
+public class OuttakeCommand extends Command {
+  public OuttakeCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
