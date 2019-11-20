@@ -27,19 +27,27 @@ public class Intake extends Subsystem {
   }
   public void intake(double power){
     intakeMotor.set(ControlMode.PercentOutput, Math.abs(power));
-    hatchFingers.set(true);
-    hatchThrowing.set(true);
-
   }
+  public void hatchIntake(){
+    hatchFingers.set(false);
+  }
+  public void hatchOuttake(){
+    hatchFingers.set(true);
+  }
+
+  public void extendHatchPistons() {
+		hatchThrowing.set(true);
+	}
+
+	public void retractHatchPistons() {
+		hatchThrowing.set(false);
+	}
+
   public void outtake(double power){
     intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));
-    hatchFingers.set(false);
-    hatchThrowing.set(false);
   }
   public void stop(){
     intakeMotor.set(ControlMode.PercentOutput, 0);
-    hatchFingers.set(false);
-    hatchThrowing.set(false);
   }
   @Override
   public void initDefaultCommand() {
