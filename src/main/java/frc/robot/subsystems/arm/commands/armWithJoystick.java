@@ -10,8 +10,8 @@ package frc.robot.subsystems.arm.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class armWithJoystick extends Command {
-  public armWithJoystick() {
+public class ArmWithJoystick extends Command {
+  public ArmWithJoystick() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.arm);
@@ -27,6 +27,7 @@ public class armWithJoystick extends Command {
   protected void execute() {
     double y = Robot.oi.armStick.getY();
     Robot.arm.setY(y);
+    System.out.println(y);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,11 +39,13 @@ public class armWithJoystick extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    Robot.arm.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.arm.stop();
   }
 }

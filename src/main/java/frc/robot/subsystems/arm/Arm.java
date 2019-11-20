@@ -29,6 +29,10 @@ public class Arm extends Subsystem {
 
   public void setY(double y) {
     armMotor.set(ControlMode.PercentOutput, y);
+    System.out.println(y);
+  }
+  public void stop() {
+    armMotor.set(ControlMode.PercentOutput, 0);
   }
 
   @Override

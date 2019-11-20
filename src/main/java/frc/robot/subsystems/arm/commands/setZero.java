@@ -12,10 +12,10 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class setZero extends Command {
+public class SetZero extends Command {
   public TalonSRX armMotor = Robot.hardware.armMotor;
 
-  public setZero() {
+  public SetZero() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.arm);
