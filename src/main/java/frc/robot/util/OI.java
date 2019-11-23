@@ -13,7 +13,6 @@ import frc.robot.subsystems.arm.commands.ArmWithJoystick;
 import frc.robot.subsystems.arm.commands.CargoShipFront;
 import frc.robot.subsystems.arm.commands.SetZero;
 
-
 /**
  * Add your docs here.
  */
@@ -21,14 +20,12 @@ public class OI {
     public Joystick armStick;
     public JoystickButton intakeButton, outtakeButton, armButton, setZeroButton, cargoShipFrontButton;
 
-
     public OI() {
         armStick = new Joystick(1);
-        
+
         setZeroButton = new JoystickButton(armStick, 4);
-        armButton = new  JoystickButton(armStick, 1);
+        armButton = new JoystickButton(armStick, 1);
         cargoShipFrontButton = new JoystickButton(armStick, 5);
-        
 
         setZeroButton.whenPressed(new SetZero());
         cargoShipFrontButton.whenPressed(new CargoShipFront());

@@ -1,8 +1,8 @@
 package frc.robot.util;
 
 public class Constants {
-    public class Arm {
-        public static final int INTAKE_ARM_MOTOR_PORT = 6;
+	public class Arm {
+		public static final int INTAKE_ARM_MOTOR_PORT = 6;
 		public static final int INTAKE_MOTOR_PORT = 4;
 
 		public static final int HATCH_PISTON_SOLENOID_PORT = 2;
@@ -37,7 +37,8 @@ public class Constants {
 
 		// INTAKE ARM PID
 		public static final double INTAKE_ARM_MAX_POWER = 0.35;
-		public static final double INTAKE_ARM_P = 0.002; //Robot smoked cause went to fast p is equal to .35(max power we want) divided by 180(max possible error)
+		public static final double INTAKE_ARM_P = 0.002; // Robot smoked cause went to fast p is equal to .35(max power
+															// we want) divided by 180(max possible error)
 		public static final double INTAKE_ARM_I = 0;
 		public static final double INTAKE_ARM_D = 0;
 		public static final double ERROR_TOLERANCE = 3; // degrees
@@ -50,5 +51,5 @@ public class Constants {
 		public static final double FAST_OUTTAKE_POWER = -1.0; // For Level 2 Rocket
 		public static final double SLOW_OUTTAKE_POWER = -0.5; // For close cargo ship
 		public static final double RETRACT_HATCH_PISTON_DELAY = 0.1;
-	}    
+	}
 }
