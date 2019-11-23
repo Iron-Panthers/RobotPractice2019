@@ -9,9 +9,10 @@ package frc.robot.subsystems.arm.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.util.Constants;
 
-public class ArmWithJoystick extends Command {
-  public ArmWithJoystick() {
+public class CargoShipFront extends Command {
+  public CargoShipFront() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.arm);
@@ -20,20 +21,20 @@ public class ArmWithJoystick extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.arm.target = Robot.arm.angleBySetpoint(Constants.Arm.CARGO_SHIP_HEIGHT, true);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double y = Robot.oi.armStick.getY();
-    Robot.arm.set(y);
-    System.out.println(y);
+    double power = Robot.arm.getPower();
+    Robot.arm.set(power);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return Robot.arm.isFinished();
   }
 
   // Called once after isFinished returns true

@@ -10,6 +10,7 @@ package frc.robot.util;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.subsystems.arm.commands.ArmWithJoystick;
+import frc.robot.subsystems.arm.commands.CargoShipFront;
 import frc.robot.subsystems.arm.commands.SetZero;
 
 
@@ -18,17 +19,19 @@ import frc.robot.subsystems.arm.commands.SetZero;
  */
 public class OI {
     public Joystick armStick;
-    public JoystickButton intakeButton, outtakeButton, armButton, setZeroButton;
+    public JoystickButton intakeButton, outtakeButton, armButton, setZeroButton, cargoShipFrontButton;
 
 
     public OI() {
         armStick = new Joystick(1);
         
-        outtakeButton = new JoystickButton(armStick, 3);
         setZeroButton = new JoystickButton(armStick, 4);
         armButton = new  JoystickButton(armStick, 1);
+        cargoShipFrontButton = new JoystickButton(armStick, 5);
+        
 
         setZeroButton.whenPressed(new SetZero());
+        cargoShipFrontButton.whenPressed(new CargoShipFront());
         armButton.whileHeld(new ArmWithJoystick());
     }
 }
