@@ -48,12 +48,10 @@ public class Arm extends Subsystem {
         * Math.cos(getCurrentAngle() * Constants.Arm.DEGRESS_TO_RADIANS);
     return basePower;
   }
-/**
- * Calculates the angle the arm would need to be at for the arm to reach a
- * target height
+/** 
  * @param targetHeight
  * @param isFront
- * @return
+ * @return the angle the arm would need to be at for the arm to reach a target height
  */
   
   public double angleBySetpoint(double targetHeight, boolean isFront) {
