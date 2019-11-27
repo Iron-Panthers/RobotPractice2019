@@ -26,8 +26,8 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Hardware hardware;
-  public static OI oi;
   public static Intake intake;
+  public static OI oi;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -39,8 +39,8 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     hardware = new Hardware();
-    oi = new OI();
     intake = new Intake();
+    oi = new OI();
   }
 
   /**

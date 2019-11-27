@@ -46,6 +46,7 @@ public class Intake extends Subsystem {
   public void outtake(double power){
     intakeMotor.set(ControlMode.PercentOutput, -Math.abs(power));
   }
+
   public void stop(){
     intakeMotor.set(ControlMode.PercentOutput, 0);
   }

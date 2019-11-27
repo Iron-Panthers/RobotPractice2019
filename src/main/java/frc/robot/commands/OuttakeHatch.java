@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class OuttakeHatch extends Command {
   public OuttakeHatch() {
+    requires(Robot.intake);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -47,6 +48,5 @@ public class OuttakeHatch extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    Robot.intake.stop();
   }
 }
