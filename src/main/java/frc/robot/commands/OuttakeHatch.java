@@ -28,6 +28,7 @@ public class OuttakeHatch extends Command {
   protected void execute() {
     Robot.intake.hatchOuttake();
     Robot.intake.extendHatchPistons();
+    System.out.println("Outtake hatch running");
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -46,5 +47,6 @@ public class OuttakeHatch extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.intake.stop();
   }
 }

@@ -11,6 +11,7 @@ public class IntakeCommands extends Command {
     }
     protected void execute() {
         Robot.intake.intake(Constants.INTAKE_POWER);
+        System.out.println("Intake running");
     }
     protected boolean isFinished () {
       return false;
@@ -19,5 +20,6 @@ public class IntakeCommands extends Command {
         Robot.intake.stop();
     }
     protected void interrupted () {
+        Robot.intake.stop();
     }
 }

@@ -27,6 +27,7 @@ public class Outtake extends Command {
   @Override
   protected void execute() {
     Robot.intake.outtake(Constants.OUTTAKE_POWER);
+    System.out.println("Outtake running");
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -45,6 +46,6 @@ public class Outtake extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-  
+    Robot.intake.stop();
   }
 }
