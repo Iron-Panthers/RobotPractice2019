@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class SetZero extends Command {
+  // tested, does work
   public TalonSRX armMotor = Robot.hardware.armMotor;
 
   public SetZero() {
@@ -24,13 +25,15 @@ public class SetZero extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.arm.armMotor.setSelectedSensorPosition(0);
+    Robot.arm.target = 0;
+    System.out.println(Robot.arm.getCurrentAngle());
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    armMotor.setSelectedSensorPosition(0);
-    Robot.arm.target = 0;
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

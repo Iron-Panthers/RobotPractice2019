@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class ArmWithJoystick extends Command {
+  // tested, does work
   public ArmWithJoystick() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -27,7 +28,7 @@ public class ArmWithJoystick extends Command {
   protected void execute() {
     double y = Robot.oi.armStick.getY();
     Robot.arm.set(y);
-    System.out.println(y);
+    System.out.println(Robot.arm.getCurrentAngle());
   }
 
   // Make this return true when this Command no longer needs to run execute()

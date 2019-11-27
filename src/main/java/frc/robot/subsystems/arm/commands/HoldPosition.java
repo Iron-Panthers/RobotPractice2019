@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class HoldPosition extends Command {
+  // tested, does work
   public HoldPosition() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -26,19 +27,20 @@ public class HoldPosition extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.set(Robot.arm.getPower());
+    double power = Robot.arm.getPower();
+    Robot.arm.set(power);
+    System.out.println(Robot.arm.target);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.arm.isFinished();
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.arm.stop();
   }
 
   // Called when another command which requires one or more of the same

@@ -30,11 +30,14 @@ public class Arm extends Subsystem {
   }
 
   // sets the power of the arm motor
+  // tested, does work
   public void set(double y) {
     armMotor.set(ControlMode.PercentOutput, y);
   }
 
   // stops motors
+  // tested, does work
+
   public void stop() {
     armMotor.set(ControlMode.PercentOutput, 0);
   }
@@ -42,6 +45,7 @@ public class Arm extends Subsystem {
   /**
    * calculates the base power that is based on the current angle and is used in
    * to help calculate the power in getPower()
+   * tested, does work
    */
   public double getBasePower() {
     double basePower = Constants.Arm.STALL_TORQUE_COEFFICIENT
@@ -52,11 +56,12 @@ public class Arm extends Subsystem {
  * @param targetHeight
  * @param isFront
  * @return the angle the arm would need to be at for the arm to reach a target height
+ * tested, does work
  */
   
   public double angleBySetpoint(double targetHeight, boolean isFront) {
     if (!isFront) {
-      return 180 - (Math.asin(targetHeight / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES);
+      return Constants.Arm.MAX_ANGLE_ERROR - ((Math.asin((targetHeight+Constants.Arm.CARGO_SHIP_FRONT_BACK_ADJUST) / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES));
     } else {
       return (Math.asin(targetHeight / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES);
     }
@@ -64,6 +69,7 @@ public class Arm extends Subsystem {
 
   /**
    * calculates and returns the power the robot would need to get to the target with PID
+   * tested, does work
    */
   public double getPower() {
     double currentError = Robot.arm.getCurrentAngle() - target;
@@ -73,6 +79,7 @@ public class Arm extends Subsystem {
 
   /** 
    * lets commands know if the arm is close enough to its target and therefore can stop running
+   * tested, does work
    */ 
   public boolean isFinished() {
     if ((Math.abs(Robot.arm.target - Robot.arm.getCurrentAngle())) <= Constants.Arm.ERROR_TOLERANCE) {
@@ -84,6 +91,7 @@ public class Arm extends Subsystem {
 
   /** 
    * gets current angle 
+   * tested, does work
    */ 
   public double getCurrentAngle() {
     double currentAngle = (Constants.Arm.TICKS_TO_DEGREES * (double) armMotor.getSelectedSensorPosition())

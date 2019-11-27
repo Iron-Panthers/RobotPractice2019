@@ -33,8 +33,8 @@ public class Constants {
 
 		// INTAKE ARM PID
 		public static final double INTAKE_ARM_MAX_POWER = 0.35;
-		public static final double INTAKE_ARM_P = 0.002; // Robot smoked cause went to fast p is equal to .35(max power
-															// we want) divided by 180(max possible error)
+		public static final double INTAKE_ARM_P = 0.012; 
+		public static final double MAX_ANGLE_ERROR = 151.47-BASE_ANGLE_OFFSET;											// we want) divided by 151.47(max possible error)
 		public static final double INTAKE_ARM_I = 0;
 		public static final double INTAKE_ARM_D = 0;
 		public static final double ERROR_TOLERANCE = 3; // degrees

@@ -11,17 +11,22 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.util.Constants;
 
-public class CargoShipFront extends Command {
-  public CargoShipFront() {
+public class SetPoints extends Command {
+  public double height;
+  public boolean isFront;
+  public SetPoints(double height,boolean isFront) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    this.height = height;
+    this.isFront = isFront;
     requires(Robot.arm);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.arm.target = Robot.arm.angleBySetpoint(Constants.Arm.CARGO_SHIP_HEIGHT, true);
+    Robot.arm.target = Robot.arm.angleBySetpoint(height-Constants.Arm.ARM_BASE_HEIGHT, isFront);
+    System.out.println(Robot.arm.target);
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -29,6 +34,7 @@ public class CargoShipFront extends Command {
   protected void execute() {
     double power = Robot.arm.getPower();
     Robot.arm.set(power);
+    System.out.println(Robot.arm.target - Robot.arm.getCurrentAngle());
   }
 
   // Make this return true when this Command no longer needs to run execute()
