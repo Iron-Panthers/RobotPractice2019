@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class OuttakeHatch extends Command {
   public OuttakeHatch() {
+    requires(Robot.intake);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -28,6 +29,7 @@ public class OuttakeHatch extends Command {
   protected void execute() {
     Robot.intake.hatchOuttake();
     Robot.intake.extendHatchPistons();
+    System.out.println("Outtake hatch running");
   }
 
   // Make this return true when this Command no longer needs to run execute()
