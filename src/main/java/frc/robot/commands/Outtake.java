@@ -9,18 +9,20 @@ package frc.robot.commands;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.subsystems.Intake;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-public class OuttakeCommand extends Command {
-  public OuttakeCommand() {
+public class Outtake extends Command {
+  public Outtake() {
     requires(Robot.intake);
     // Use requires() here to declare subsystem dependencies
-  // Called repeatedly when this Command is scheduled to run
+    // eg. requires(chassis);
   }
-  private void requires(Intake intake) {
-}
-@Override
+  @Override
+  protected void initialize() {
+  }
+  // Called repeatedly when this Command is scheduled to run
+  @Override
   protected void execute() {
     Robot.intake.outtake(Constants.OUTTAKE_POWER);
     System.out.println("Outtake running");
@@ -42,6 +44,6 @@ public class OuttakeCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-   Robot.intake.stop();
+    Robot.intake.stop();
   }
 }

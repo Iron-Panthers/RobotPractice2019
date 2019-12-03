@@ -9,7 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.IntakeHatch;
+import frc.robot.commands.Outtake;
 import frc.robot.commands.OuttakeHatch;
 
 public class OI {
@@ -27,6 +29,8 @@ public class OI {
     outtakeHatchButton = new JoystickButton(stick2, Constants.OUTTAKE_HATCH_BUTTON);
     intakeHatchButton.whileHeld(new IntakeHatch());
     outtakeHatchButton.whileHeld(new OuttakeHatch());
+    intakeButton.whileHeld(new IntakeCommand());
+    outtakeButton.whileHeld(new Outtake());
   }
 }
 
