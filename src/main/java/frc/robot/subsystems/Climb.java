@@ -45,7 +45,7 @@ public class Climb extends Subsystem {
       right.setEncoderPosition(Constants.CLIMB_UP_ENCODER_POS);
     } else {
       left.set(Constants.CLIMB_UP_POWER);
-      right.set(Constants.CLIMB_UP_POWER);
+      right.set(-Constants.CLIMB_UP_POWER);
     }
   }
 
@@ -58,7 +58,7 @@ public class Climb extends Subsystem {
       right.setEncoderPosition(Constants.CLIMB_DOWN_ENCODER_POS);
     } else {
       left.set(Constants.CLIMB_DOWN_POWER);
-      right.set(Constants.CLIMB_DOWN_POWER);
+      right.set(-Constants.CLIMB_DOWN_POWER);
     }
   }
 
