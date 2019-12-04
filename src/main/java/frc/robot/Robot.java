@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.Intake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   public static Hardware hardware;
   public static Climb climb;
+  public static Intake intake;
   public static OI oi;
 
   /**
@@ -35,13 +37,13 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    hardware = new Hardware();
     climb = new Climb();
-    oi = new OI();
-
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    hardware = new Hardware();
+    intake = new Intake();
+    oi = new OI();
   }
 
   /**
