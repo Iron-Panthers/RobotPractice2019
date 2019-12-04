@@ -18,7 +18,6 @@ public class DriveShift extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    System.out.println("Shifted Low"); 
     Robot.drive.shiftLow(); 
   }
 
@@ -36,7 +35,6 @@ public class DriveShift extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    System.out.println("Shifted High"); 
     Robot.drive.shiftHigh(); 
   }
 
@@ -44,7 +42,6 @@ public class DriveShift extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    System.out.println("Shifted High");
     Robot.drive.shiftHigh();  
   }
 }

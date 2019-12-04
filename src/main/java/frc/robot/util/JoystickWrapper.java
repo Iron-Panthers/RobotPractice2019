@@ -49,13 +49,13 @@ public class JoystickWrapper extends Joystick {
 	 * used {@link #update()}.
 	 */
 	public double findLeftPower() {
-		double direction = Robot.drive.isReversed ? -1 : 1;
+		double direction = Robot.drive.getReversed() ? -1 : 1;
 		// A slight modification of the traditional arcade drive calculation
 		// Makes X-axis nonlinear, adds sensitivity constant
-		double value = (y * direction) + Math.copySign(Math.pow(Math.abs(x), Constants.Drivebase.SCALING_POWER), x)
-				* Constants.Drivebase.TURN_SENSITIVITY;
+		double value = (y * direction) + Math.copySign(Math.pow(Math.abs(x), Constants.SCALING_POWER), x)
+				* Constants.TURN_SENSITIVITY;
 
-		if (Constants.Drivebase.IS_DRIVEBASE_BACKWARDS) {
+		if (Constants.IS_DRIVEBASE_BACKWARDS) {
 			return -1 * value;
 		}
 		return value;
@@ -66,13 +66,13 @@ public class JoystickWrapper extends Joystick {
 	 * recently used {@link #updateMagnitude()}.
 	 */
 	public double findRightPower() {
-		double direction = Robot.drive.isReversed ? -1 : 1;
+		double direction = Robot.drive.getReversed() ? -1 : 1;
 		// A slight modification of the traditional arcade drive calculation
 		// Makes X-axis nonlinear, adds sensitivity constant
-		double value = (y * direction) - Math.copySign(Math.pow(Math.abs(x), Constants.Drivebase.SCALING_POWER), x)
-				* Constants.Drivebase.TURN_SENSITIVITY;
+		double value = (y * direction) - Math.copySign(Math.pow(Math.abs(x), Constants.SCALING_POWER), x)
+				* Constants.TURN_SENSITIVITY;
 
-		if (Constants.Drivebase.IS_DRIVEBASE_BACKWARDS) {
+		if (Constants.IS_DRIVEBASE_BACKWARDS) {
 			return -1 * value;
 		}
 		return value;

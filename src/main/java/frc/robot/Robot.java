@@ -23,17 +23,11 @@ import frc.robot.util.OI;
  * project.
  */
 public class Robot extends TimedRobot {
-  private static final String kDefaultAuto = "Default";
-  private static final String kCustomAuto = "My Auto";
-  private String m_autoSelected;
-
-  public static OI oi; 
-  public static Hardware hardware; 
   public static Drive drive; 
+  public static OI oi; 
   
-
   Command m_autonomousCommand; 
-  private final SendableChooser<String> m_chooser = new SendableChooser<>();
+  SendableChooser<String> m_chooser = new SendableChooser<>();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -41,13 +35,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
-    m_chooser.addOption("My Auto", kCustomAuto);
-    SmartDashboard.putData("Auto choices", m_chooser);
-
-    hardware = new Hardware(); 
-    oi = new OI(); 
     drive = new Drive(); 
+    oi = new OI(); 
   }
 
   /**
@@ -73,12 +62,13 @@ public class Robot extends TimedRobot {
    * the switch structure below with additional strings. If using the
    * SendableChooser make sure to add them to the chooser code above as well.
    */
-  @Override
-  public void autonomousInit() {
-    m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
-    System.out.println("Auto selected: " + m_autoSelected);
-    drive.shiftHigh();
+  @Override 
+  public void disabledInit() {
+  }
+
+  @Override 
+  public void disabledPeriodic() {
+    Scheduler.getInstance().run(); 
   }
 
   /**
@@ -89,12 +79,8 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run(); 
   }
 
-  /**
-   * This function is called periodically during operator control.
-   */
   @Override
   public void teleopInit() {
-    drive.shiftHigh();
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel(); 
     }

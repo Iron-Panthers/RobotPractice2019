@@ -4,21 +4,18 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package frc.robot.util;
 
 import com.revrobotics.CANError;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 /**
  * SparkMaxMotorGroup is a flexible-size grouping of the Spark Max motor
  * controller, which provides for some utility methods for controlling them.
  */
 public class SparkMaxMotorGroup {
-	private CANSparkMax masterMotor;
+	private CANSparkMax leaderMotor;
 	private CANSparkMax[] motors;
 	private String name;
 
@@ -28,18 +25,19 @@ public class SparkMaxMotorGroup {
 	 * SparkMaxMotorGroup is a flexible-size grouping of SparkMax motor controllers.
 	 * 
 	 * @param name        the name of the motor group.
-	 * @param masterMotor the master motor controller of the motor group. A getter
+	 * @param leaderMotor the master motor controller of the motor group. A getter
 	 *                    is supplied for this motor controller, which should be
 	 *                    used for encoder information, etc.
 	 * @param motors      other motor controllers to include in the group.
 	 */
-	public SparkMaxMotorGroup(String name, CANSparkMax masterMotor, CANSparkMax... motors) {
+	public SparkMaxMotorGroup(String name, CANSparkMax leaderMotor, CANSparkMax... motors) {
 		this.name = name;
-		this.masterMotor = masterMotor;
+		this.leaderMotor = leaderMotor;
 		this.motors = motors;
-		setup(masterMotor);
+		setup(leaderMotor);
 		for (CANSparkMax element : motors) {
 			setup(element);
+			element.follow(leaderMotor);
 		}
 	}
 
@@ -57,19 +55,12 @@ public class SparkMaxMotorGroup {
 
 		// Set the idle mode to Brake. If it fails, display the error
 		if (m_motor.setIdleMode(IdleMode.kBrake) != CANError.kOk) {
-            SmartDashboard.putString("SparkMaxMotorGroup " + name + " -- Idle Mode", "Failed to set");
-        }
+			System.out.println("SparkMaxMotorGroup " + name + " -- Idle Mode, Failed to set");
+		}
 
-        // Check the idle mode of the motor controller, and put to SmartDashboard
-        if (m_motor.getIdleMode() == IdleMode.kCoast) {
-            SmartDashboard.putString("SparkMaxMotorGroup " + name + " -- Idle Mode", "Coast");
-        } else {
-            SmartDashboard.putString("SparkMaxMotorGroup " + name + " -- Idle Mode", "Brake");
-        }
-
-        // Set open loop ramp rate to 0. If it fails, display the error
-        if (m_motor.setOpenLoopRampRate(0) != CANError.kOk) {
-			SmartDashboard.putString("SparkMaxMotorGroup " + name + " -- Ramp Rate", "Error");
+		// Set open loop ramp rate to 0. If it fails, display the error
+		if (m_motor.setOpenLoopRampRate(0) != CANError.kOk) {
+			System.out.println("SparkMaxMotorGroup " + name + " -- Ramp Rate, Error");
 		}
 	}
 
@@ -79,10 +70,7 @@ public class SparkMaxMotorGroup {
 	 * @param power The power to set, between -1.0 and 1.0.
 	 */
 	public void set(double power) {
-		masterMotor.set(power);
-		for (CANSparkMax motor : this.motors) {
-			motor.set(power);
-		}
+		leaderMotor.set(power);
 	}
 
 	/**
@@ -109,7 +97,7 @@ public class SparkMaxMotorGroup {
 	 * @param isInverted The state of inversion, with true being inverted.
 	 */
 	public void setInverted(boolean isInverted) {
-		masterMotor.setInverted(isInverted);
+		leaderMotor.setInverted(isInverted);
 		for (CANSparkMax motor : this.motors) {
 			motor.setInverted(isInverted);
 		}
@@ -122,7 +110,7 @@ public class SparkMaxMotorGroup {
 	 * @param rate Time in seconds to go from 0 to full throttle.
 	 */
 	public void setOpenLoopRampRate(double rate) {
-		masterMotor.setOpenLoopRampRate(rate);
+		leaderMotor.setOpenLoopRampRate(rate);
 		for (CANSparkMax motor : this.motors) {
 			motor.setOpenLoopRampRate(rate);
 		}
@@ -132,20 +120,20 @@ public class SparkMaxMotorGroup {
 	 * @return the master motor of the MotorGroup.
 	 */
 	public CANSparkMax getMasterMotor() {
-		return masterMotor;
+		return leaderMotor;
 	}
 
 	/**
 	 * @return the applied output of the master motor of the MotorGroup.
 	 */
 	public double getAppliedOutput() {
-		return masterMotor.getAppliedOutput();
+		return leaderMotor.getAppliedOutput();
 	}
 
 	/**
 	 * @return the encoder position in revolutions of the encoder.
 	 */
 	public double getEncoderPosition() {
-		return masterMotor.getEncoder().getPosition();
+		return leaderMotor.getEncoder().getPosition();
 	}
 }

@@ -7,24 +7,22 @@ import frc.robot.subsystems.drive.commands.ReverseDrive;
 
 
 public class OI {
-    // Joystick for tele-op input 
-    public JoystickWrapper stick1;
-
-    // buttons for Driver 1
-    JoystickButton reverseDrive, shiftGearLow, goForward; 
+    public final JoystickWrapper driverAController; 
+    public final JoystickButton reverseDrive, driveShift; 
 
     public OI() {
-        // initializing Joystick
-        stick1 = new JoystickWrapper(Constants.Input.JOYSTICK_1_PORT); 
-        
-        // initializing buttons for Driver 1
-        reverseDrive = new JoystickButton(stick1, Constants.Input.REVERSE_DRIVE_BUTTON); 
-        shiftGearLow = new JoystickButton(stick1, Constants.Input.SHIFT_GEAR_LOW_BUTTON); 
-        goForward = new JoystickButton(stick1, Constants.Input.GO_FORWARD_BUTTON); 
+        /* Driver A */
+        driverAController = new JoystickWrapper(0); 
+        reverseDrive = new JoystickButton(driverAController, 1); 
+        driveShift = new JoystickButton(driverAController, 2); 
 
-        // Driver 1 assignment of commands to buttons
+        configureButtonBindings(); 
+    }
+
+    private void configureButtonBindings() {
+        /* Driver A */
         reverseDrive.whileHeld(new ReverseDrive()); 
-        shiftGearLow.whileHeld(new DriveShift()); 
-        goForward.whileHeld(new ArcadeDrive()); 
+        driveShift.whileHeld(new DriveShift()); 
+        
     }
 }
