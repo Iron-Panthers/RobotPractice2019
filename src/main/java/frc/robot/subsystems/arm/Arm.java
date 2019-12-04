@@ -61,9 +61,9 @@ public class Arm extends Subsystem {
   
   public double angleBySetpoint(double targetHeight, boolean isFront) {
     if (!isFront) {
-      return Constants.Arm.MAX_ANGLE_ERROR - ((Math.asin((targetHeight+Constants.Arm.CARGO_SHIP_FRONT_BACK_ADJUST) / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES));
+      return 180 - ((Math.asin((targetHeight) / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES));
     } else {
-      return (Math.asin(targetHeight / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES);
+      return (Math.asin((targetHeight) / Constants.Arm.ARM_LENGTH) * Constants.Arm.RADIANS_TO_DEGREES);
     }
   }
 
@@ -72,10 +72,12 @@ public class Arm extends Subsystem {
    * tested, does work
    */
   public double getPower() {
-    double currentError = Robot.arm.getCurrentAngle() - target;
+    double currentError = target - Robot.arm.getCurrentAngle();
     double power = currentError * Constants.Arm.INTAKE_ARM_P + getBasePower();
+    power *= Constants.Arm.INTAKE_ARM_MAX_POWER;
     return power;
   }
+
 
   /** 
    * lets commands know if the arm is close enough to its target and therefore can stop running
