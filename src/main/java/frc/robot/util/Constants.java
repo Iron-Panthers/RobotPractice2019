@@ -33,8 +33,8 @@ public class Constants {
 
 		// INTAKE ARM PID
 		public static final double INTAKE_ARM_MAX_POWER = 0.4;
-		public static final double INTAKE_ARM_P = 0.0058; 
-		public static final double INTAKE_ARM_P_BACK = 0.0058; 
+		public static final double INTAKE_ARM_P = 0.043; 
+		public static final double INTAKE_ARM_P_BACK = 0.02; 
 		public static final double MAX_ANGLE_ERROR = 151.47;											
 		public static final double INTAKE_ARM_I = 0;
 		public static final double INTAKE_ARM_D = 0;

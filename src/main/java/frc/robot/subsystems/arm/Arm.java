@@ -75,8 +75,15 @@ public class Arm extends Subsystem {
     double currentError = target - Robot.arm.getCurrentAngle();
     double power = currentError * Constants.Arm.INTAKE_ARM_P + getBasePower();
     power *= Constants.Arm.INTAKE_ARM_MAX_POWER;
-    return power;
+    return -power;
   }
+  public double getPowerBack() {
+    double currentError = target - Robot.arm.getCurrentAngle();
+    double power = currentError * Constants.Arm.INTAKE_ARM_P_BACK + getBasePower();
+    power *= Constants.Arm.INTAKE_ARM_MAX_POWER;
+    return -power;
+  }
+  
 
 
   /** 

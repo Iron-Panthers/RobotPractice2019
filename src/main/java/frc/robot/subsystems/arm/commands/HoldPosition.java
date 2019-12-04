@@ -29,7 +29,6 @@ public class HoldPosition extends Command {
   protected void execute() {
     double power = Robot.arm.getPower();
     Robot.arm.set(power);
-    System.out.println(Robot.arm.target);
   }
 
   // Make this return true when this Command no longer needs to run execute()

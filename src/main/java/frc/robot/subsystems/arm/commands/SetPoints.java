@@ -9,7 +9,6 @@ package frc.robot.subsystems.arm.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.util.Constants;
 
 public class SetPoints extends Command {
   public double height;
@@ -25,16 +24,24 @@ public class SetPoints extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.arm.target = Robot.arm.angleBySetpoint(height-Constants.Arm.ARM_BASE_HEIGHT, isFront);
-    System.out.println(Robot.arm.target);
+    Robot.arm.target = Robot.arm.angleBySetpoint(height, isFront);
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double power = Robot.arm.getPower();
+    double power = 0;
+    if (isFront) {
+       power = Robot.arm.getPower();
+    } else if(!isFront) {
+      power = Robot.arm.getPowerBack();
+    } else {
+      System.out.println("Error isFront not set correctly");
+    }
     Robot.arm.set(power);
-    System.out.println(Robot.arm.target - Robot.arm.getCurrentAngle());
+    System.out.println("The power is:"+power);
+    System.out.println("The target angle is:"+Robot.arm.target);
+    System.out.println("The current error is"+ (Robot.arm.target-Robot.arm.getCurrentAngle()));
   }
 
   // Make this return true when this Command no longer needs to run execute()
