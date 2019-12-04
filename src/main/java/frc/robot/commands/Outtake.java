@@ -7,7 +7,7 @@
 
 package frc.robot.commands;
 
-import frc.robot.Constants;
+import frc.robot.util.Constants;
 import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
