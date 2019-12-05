@@ -29,7 +29,6 @@ public class Constants {
 
 		public static final int INTAKE = 4;
 
-		/** TODO: Check */
 		public static final int LEFT_WINCH = 30; // Based on orientation where the battery is the front
 		public static final int RIGHT_WINCH = 31; // See above
 		public static final int VACUUM_PORT = 7;

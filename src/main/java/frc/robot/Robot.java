@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.climb.Climb;
 import frc.robot.subsystems.drive.Drive;
 import frc.robot.util.OI;
 
@@ -24,10 +25,11 @@ import frc.robot.util.OI;
  */
 public class Robot extends TimedRobot {
   public static Drive drive; 
+  public static Climb climb; 
   public static OI oi; 
   
   Command m_autonomousCommand; 
-  SendableChooser<String> m_chooser = new SendableChooser<>();
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -36,6 +38,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     drive = new Drive(); 
+    climb = new Climb(); 
     oi = new OI(); 
   }
 
@@ -49,6 +52,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putBoolean("Is succed", climb.isSuccd()); 
   }
 
   /**
@@ -69,6 +73,15 @@ public class Robot extends TimedRobot {
   @Override 
   public void disabledPeriodic() {
     Scheduler.getInstance().run(); 
+  }
+
+  @Override
+  public void autonomousInit() {
+    m_autonomousCommand = m_chooser.getSelected(); 
+
+    if (m_autonomousCommand != null) {
+      m_autonomousCommand.start(); 
+    }
   }
 
   /**
